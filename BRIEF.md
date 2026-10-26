@@ -260,20 +260,20 @@ Làm lần lượt 9 giai đoạn, từ 0 đến 8. Mỗi giai đoạn kết th�
 
 ### Giai đoạn 0. Chuẩn bị
 
-- [ ] Kiểm tra `node -v` (cần Node 20 trở lên), `npm -v` và `git --version`; thiếu một trong ba thì dừng và báo.
-- [ ] Đọc hết brief này, kỹ nhất là mục Tham số dự án và Tài sản giữ lại từ dự án cũ.
-- [ ] Tạo thư mục `networkai-site` chứa `BRIEF.md`, chạy `git init` và commit đầu tiên chỉ có `BRIEF.md`.
+- [x] Kiểm tra `node -v` (cần Node 20 trở lên), `npm -v` và `git --version`; thiếu một trong ba thì dừng và báo.
+- [x] Đọc hết brief này, kỹ nhất là mục Tham số dự án và Tài sản giữ lại từ dự án cũ.
+- [x] Tạo thư mục `networkai-site` chứa `BRIEF.md`, chạy `git init` và commit đầu tiên chỉ có `BRIEF.md`.
 
 **Xong khi:** ba lệnh kiểm tra phiên bản chạy được và repo mới có đúng một commit. Commit: `chore: init repo with brief`.
 
 ### Giai đoạn 1. Khung dự án và đa ngôn ngữ
 
-- [ ] Chạy `npx create-next-app@latest` ngay trong thư mục dự án với TypeScript, ESLint, Tailwind, App Router, không dùng thư mục `src`, alias `@/*`, npm. Nếu bị từ chối vì thư mục không rỗng thì khởi tạo vào thư mục tạm rồi chuyển file sang.
-- [ ] Đọc `AGENTS.md` nếu create-next-app sinh ra, và đọc tài liệu trong `node_modules/next/dist/docs/` nếu có trước khi viết code Next, vì bản mới có thể khác những gì đã biết.
-- [ ] Cài `next-intl`, `zod`, `react-hook-form`, `@hookform/resolvers`, `resend`, `gray-matter`, `next-mdx-remote`; cài dev `sharp` và `@playwright/test`. Ghi lý do từng thư viện vào README.
-- [ ] Dựng đúng cây thư mục ở mục Cấu trúc thư mục và cách cập nhật, cùng `site.config.ts`, `.env.example` (`RESEND_API_KEY`, `CONTACT_TO_EMAIL=sales@networkai.vn`, `CONTACT_FROM_EMAIL`, `NEXT_PUBLIC_SITE_URL`) và `.github/workflows/ci.yml`.
-- [ ] Dựng định tuyến `app/[locale]/` bằng `next-intl` cho `en` và `vi`, cùng `messages/en.json`, `messages/vi.json` và trang chủ rỗng ở cả hai ngôn ngữ. Làm đa ngôn ngữ ngay từ đây để khỏi sửa lại toàn bộ route về sau.
-- [ ] Thêm script `check` (ESLint và `tsc --noEmit`) và `test:e2e` vào `package.json`.
+- [x] Chạy `npx create-next-app@latest` ngay trong thư mục dự án với TypeScript, ESLint, Tailwind, App Router, không dùng thư mục `src`, alias `@/*`, npm. Nếu bị từ chối vì thư mục không rỗng thì khởi tạo vào thư mục tạm rồi chuyển file sang.
+- [x] Đọc `AGENTS.md` nếu create-next-app sinh ra, và đọc tài liệu trong `node_modules/next/dist/docs/` nếu có trước khi viết code Next, vì bản mới có thể khác những gì đã biết.
+- [x] Cài `next-intl`, `zod`, `react-hook-form`, `@hookform/resolvers`, `resend`, `gray-matter`, `next-mdx-remote`; cài dev `sharp` và `@playwright/test`. Ghi lý do từng thư viện vào README.
+- [x] Dựng đúng cây thư mục ở mục Cấu trúc thư mục và cách cập nhật, cùng `site.config.ts`, `.env.example` (`RESEND_API_KEY`, `CONTACT_TO_EMAIL=sales@networkai.vn`, `CONTACT_FROM_EMAIL`, `NEXT_PUBLIC_SITE_URL`) và `.github/workflows/ci.yml`.
+- [x] Dựng định tuyến `app/[locale]/` bằng `next-intl` cho `en` và `vi`, cùng `messages/en.json`, `messages/vi.json` và trang chủ rỗng ở cả hai ngôn ngữ. Làm đa ngôn ngữ ngay từ đây để khỏi sửa lại toàn bộ route về sau.
+- [x] Thêm script `check` (ESLint và `tsc --noEmit`) và `test:e2e` vào `package.json`.
 
 **Xong khi:** `npm run dev` mở được `/en` và `/vi`, `npm run check` qua. Commit: `chore: scaffold project`.
 
