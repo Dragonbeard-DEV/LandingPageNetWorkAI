@@ -3,6 +3,63 @@
     "tagline": "Technology solutions for B2B enterprises",
     "description": "NetworkAI designs and delivers technology solutions for B2B enterprises."
   },
+  "nav": {
+    "home": "Home",
+    "company": "Company",
+    "about": "About us",
+    "partners": "Partners",
+    "news": "News",
+    "jobs": "Jobs",
+    "segments": "Segments",
+    "allSegments": "All segments",
+    "solutions": "Solutions",
+    "projects": "Projects",
+    "contact": "Contact",
+    "privacy": "Privacy policy",
+    "cookies": "Cookies",
+    "sitemap": "Sitemap"
+  },
+  "header": {
+    "skipToContent": "Skip to main content",
+    "homeLink": "{name} home",
+    "mainNav": "Main navigation",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "language": {
+    "label": "Language",
+    "switchTo": {
+      "en": "English",
+      "vi": "Tiếng Việt"
+    }
+  },
+  "footer": {
+    "homeLink": "{name} home",
+    "tagline": "Technology solutions for B2B enterprises.",
+    "mainLinks": "Explore",
+    "company": "Company",
+    "contact": "Contact",
+    "social": "Follow us",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "opensInNewTab": "opens in a new tab",
+    "copyright": "© {year} {name}. All rights reserved.",
+    "manageCookies": "Cookie settings"
+  },
+  "social": {
+    "linkedin": "LinkedIn",
+    "facebook": "Facebook",
+    "youtube": "YouTube"
+  },
+  "cookie": {
+    "title": "Cookies on this site",
+    "text": "We only use essential cookies unless you allow analytics. You can change this any time from the footer.",
+    "learnMore": "Cookie policy",
+    "essentialOnly": "Essential only",
+    "acceptAll": "Accept all"
+  },
   "home": {
     "placeholder": "Home page under construction."
   }

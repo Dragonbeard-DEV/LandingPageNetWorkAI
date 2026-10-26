@@ -289,9 +289,9 @@ Làm lần lượt 9 giai đoạn, từ 0 đến 8. Mỗi giai đoạn kết th�
 
 ### Giai đoạn 3. Design token và khung trang
 
-- [ ] Đặt bảng Tông màu giữ lại ở mục Tài sản, cùng font (một sans-serif hỗ trợ tiếng Việt) và khoảng cách thành design token trong `app/globals.css`. Mở xem logo NetworkAI để kiểm tra hợp màu; nếu logo lệch màu thì vẫn giữ bảng màu và ghi vào Assumptions.
-- [ ] Dựng `Container`, `Section`, `Button`, `Card`, `Chip`, `Header` (menu dropdown, đổi ngôn ngữ, menu toàn màn hình trên điện thoại), `Footer` và `CookieBanner`.
-- [ ] Chụp màn hình khung trang bằng Playwright ở 375, 768 và 1280 px, mở xem và sửa lỗi bố cục.
+- [x] Đặt bảng Tông màu giữ lại ở mục Tài sản, cùng font (một sans-serif hỗ trợ tiếng Việt) và khoảng cách thành design token trong `app/globals.css`. Mở xem logo NetworkAI để kiểm tra hợp màu; nếu logo lệch màu thì vẫn giữ bảng màu và ghi vào Assumptions.
+- [x] Dựng `Container`, `Section`, `Button`, `Card`, `Chip`, `Header` (menu dropdown, đổi ngôn ngữ, menu toàn màn hình trên điện thoại), `Footer` và `CookieBanner`.
+- [x] Chụp màn hình khung trang bằng Playwright ở 375, 768 và 1280 px, mở xem và sửa lỗi bố cục.
 
 **Xong khi:** khung hiển thị đúng ở ba cỡ màn hình, không có thanh cuộn ngang và màu khớp bảng Tông màu giữ lại. Commit: `feat: layout and design tokens`.
 

@@ -17,6 +17,21 @@ Work in progress. Full documentation is written in phase 8.
 | `sharp` (dev) | `scripts/optimize-images.mjs`: resize and convert photos to WebP |
 | `@playwright/test` (dev) | Smoke tests and layout screenshots |
 
+## Assumptions
+
+- **Next.js 16.4 without Cache Components.** create-next-app enabled `cacheComponents` and `partialPrefetching`; both were removed.
+  Every content page is statically generated with `generateStaticParams`, which is what the brief asks for and works with `next-intl` without extra wiring.
+- **Proxy instead of middleware.** Next 16 renamed `middleware.ts` to `proxy.ts`; locale detection and the `/` → `/en` redirect live there.
+- **Legacy assets.** The legacy repo was at commit `a71ae97` (matches the brief), file counts matched the brief.
+  Only `public/` was extracted (`git archive`), because the full checkout fails on Windows path-length limits in folders we do not use anyway.
+- **Image folders are flat per type** (`public/images/projects/…`), as in the Assets table of the brief, rather than one folder per record:
+  several records share photos, and the legacy photos are not tied to specific records.
+- **Logo colours.** The NetworkAI logo uses navy and a blue-to-cyan gradient, slightly different from `#0f5bff`.
+  The brief's palette was kept unchanged; the logo is used as-is. `networkai-logo-full.png` had its transparent padding trimmed (no visual change).
+- **Muted text on tinted backgrounds** uses `#5a6d88` (token `--text-muted-on-tint`) instead of `#61748e`, to stay at or above 4.5:1.
+- **Contact details.** Address and phone in `site.config.ts` are visible placeholders; the email is `sales@networkai.vn`.
+- **Favicon** (`app/icon.png`) is generated from `networkai-logo-icon.png`.
+
 ## Assets
 
 Imported from the legacy repo `letatkhoa3000/networkai-full` (commit `a71ae97`, `public/` only), de-duplicated by MD5,

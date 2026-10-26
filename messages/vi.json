@@ -3,6 +3,63 @@
     "tagline": "Giải pháp công nghệ cho doanh nghiệp B2B",
     "description": "NetworkAI thiết kế và triển khai giải pháp công nghệ cho doanh nghiệp B2B."
   },
+  "nav": {
+    "home": "Trang chủ",
+    "company": "Công ty",
+    "about": "Giới thiệu",
+    "partners": "Đối tác",
+    "news": "Tin tức",
+    "jobs": "Tuyển dụng",
+    "segments": "Lĩnh vực",
+    "allSegments": "Tất cả lĩnh vực",
+    "solutions": "Giải pháp",
+    "projects": "Dự án",
+    "contact": "Liên hệ",
+    "privacy": "Chính sách quyền riêng tư",
+    "cookies": "Cookie",
+    "sitemap": "Sơ đồ trang"
+  },
+  "header": {
+    "skipToContent": "Chuyển đến nội dung chính",
+    "homeLink": "Trang chủ {name}",
+    "mainNav": "Điều hướng chính",
+    "menu": "Menu",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu"
+  },
+  "language": {
+    "label": "Ngôn ngữ",
+    "switchTo": {
+      "en": "English",
+      "vi": "Tiếng Việt"
+    }
+  },
+  "footer": {
+    "homeLink": "Trang chủ {name}",
+    "tagline": "Giải pháp công nghệ cho doanh nghiệp B2B.",
+    "mainLinks": "Khám phá",
+    "company": "Công ty",
+    "contact": "Liên hệ",
+    "social": "Theo dõi",
+    "email": "Email",
+    "phone": "Điện thoại",
+    "address": "Địa chỉ",
+    "opensInNewTab": "mở trong thẻ mới",
+    "copyright": "© {year} {name}. Bảo lưu mọi quyền.",
+    "manageCookies": "Cài đặt cookie"
+  },
+  "social": {
+    "linkedin": "LinkedIn",
+    "facebook": "Facebook",
+    "youtube": "YouTube"
+  },
+  "cookie": {
+    "title": "Cookie trên trang này",
+    "text": "Chúng tôi chỉ dùng cookie thiết yếu, trừ khi bạn cho phép phân tích. Bạn có thể đổi lựa chọn bất cứ lúc nào ở chân trang.",
+    "learnMore": "Chính sách cookie",
+    "essentialOnly": "Chỉ cookie thiết yếu",
+    "acceptAll": "Chấp nhận tất cả"
+  },
   "home": {
     "placeholder": "Trang chủ đang được xây dựng."
   }

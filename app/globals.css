@@ -1,7 +1,172 @@
 @import "tailwindcss";
 
-body {
-  background: #f3f8fd;
-  color: #2f435d;
-  font-family: system-ui, sans-serif;
+/*
+ * Design tokens. Palette kept from the legacy public site: one brand blue,
+ * light blue backgrounds, navy text. Change a value here to change it site-wide.
+ */
+:root {
+  --brand-500: #0f5bff;
+  --brand-600: #0848d6;
+  --brand-soft: #eaf1ff;
+
+  --bg-page: #f3f8fd;
+  --bg-page-alt: #edf5fc;
+  --bg-card: #ffffff;
+  --bg-soft: #f8fbff;
+  --bg-soft-strong: #eef4ff;
+
+  --border-soft: #d9e4ef;
+  --border-strong: #c7d6e6;
+  --border-strong-hover: #aebfd4;
+
+  --text-strong: #0f1d33;
+  --text-body: #2f435d;
+  --text-muted: #61748e;
+  /* --text-muted only reaches 4.3-4.5:1 on light blue; use this on tinted backgrounds. */
+  --text-muted-on-tint: #5a6d88;
+
+  --page-header-from: #eef5fb;
+  --page-header-to: #ffffff;
+
+  --error-bg: #fef2f2;
+  --error-border: #fecaca;
+  --error-text: #b91c1c;
+  --success-bg: #ecfdf5;
+  --success-border: #a7f3d0;
+  --success-text: #047857;
+
+  --shadow-panel: 0 24px 60px -24px rgba(15, 91, 255, 0.2);
+  --shadow-card: 0 12px 32px -16px rgba(15, 23, 42, 0.12);
+  --selection-bg: rgba(15, 91, 255, 0.24);
+
+  --radius-card: 1.25rem;
+  --radius-control: 0.75rem;
+  --container-max: 76rem;
+  --gutter: 1rem;
+  --section-space: 4.5rem;
+  --header-height: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 2rem;
+    --section-space: 6.5rem;
+  }
+}
+
+@theme inline {
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-soft: var(--brand-soft);
+  --color-page: var(--bg-page);
+  --color-page-alt: var(--bg-page-alt);
+  --color-card: var(--bg-card);
+  --color-soft: var(--bg-soft);
+  --color-soft-strong: var(--bg-soft-strong);
+  --color-border-soft: var(--border-soft);
+  --color-border-strong: var(--border-strong);
+  --color-border-strong-hover: var(--border-strong-hover);
+  --color-strong: var(--text-strong);
+  --color-body: var(--text-body);
+  --color-muted: var(--text-muted);
+  --color-muted-tint: var(--text-muted-on-tint);
+  --color-error-bg: var(--error-bg);
+  --color-error-border: var(--error-border);
+  --color-error-text: var(--error-text);
+  --color-success-bg: var(--success-bg);
+  --color-success-border: var(--success-border);
+  --color-success-text: var(--success-text);
+  --font-sans: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
+  --radius-card: var(--radius-card);
+  --radius-control: var(--radius-control);
+  --shadow-panel: var(--shadow-panel);
+  --shadow-card: var(--shadow-card);
+}
+
+@layer base {
+  html {
+    scroll-padding-top: var(--header-height);
+  }
+
+  body {
+    background: var(--bg-page);
+    color: var(--text-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--text-strong);
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--selection-bg);
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--brand-500);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .page-header {
+    background: linear-gradient(to bottom, var(--page-header-from), var(--page-header-to));
+  }
+
+  /* Long-form MDX content. */
+  .prose-body {
+    color: var(--text-body);
+    line-height: 1.75;
+  }
+  .prose-body > * + * {
+    margin-top: 1.1em;
+  }
+  .prose-body h2 {
+    margin-top: 2em;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .prose-body h3 {
+    margin-top: 1.6em;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .prose-body ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .prose-body ol {
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+  .prose-body a {
+    color: var(--brand-500);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-body strong {
+    color: var(--text-strong);
+  }
+}
+
+/* Reveal-on-scroll: only hides content when scripts run and motion is welcome. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
