@@ -13,6 +13,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { getFeaturedProjects, getPage, getSolutions } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/params";
+import { organizationJsonLd, serializeJsonLd } from "@/lib/seo/jsonld";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { siteConfig } from "@/site.config";
 
@@ -43,6 +44,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(organizationJsonLd(page.description)) }} />
       <Hero
         titleLine1={page.hero.titleLine1}
         titleLine2={page.hero.titleLine2}

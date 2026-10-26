@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { defaultLocale, locales, siteConfig, type Locale } from "@/site.config";
 
+// Generated from networkai-logo-full.png on the --brand-soft background (1200x630, Open Graph size).
 export const DEFAULT_OG_IMAGE = {
-  url: "/images/brand/networkai-logo-full-dark.png",
-  width: 1280,
-  height: 866,
+  url: "/images/brand/networkai-og-default.png",
+  width: 1200,
+  height: 630,
 };
 
 type PageMetadataInput = {

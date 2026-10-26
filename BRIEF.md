@@ -321,10 +321,10 @@ Làm lần lượt 9 giai đoạn, từ 0 đến 8. Mỗi giai đoạn kết th�
 
 ### Giai đoạn 7. SEO, cookie và pháp lý
 
-- [ ] Thêm metadata, canonical, Open Graph, `hreflang`, `sitemap.ts`, `robots.ts`, JSON-LD kiểu `Organization` và ảnh OG.
-- [ ] Banner cookie mặc định chỉ cookie thiết yếu; chỗ gắn analytics là một component rỗng, bật bằng biến môi trường.
-- [ ] Viết trang Privacy và Cookies bản mẫu, có dòng ghi rõ cần pháp chế thẩm định.
-- [ ] Chạy Lighthouse mobile cho trang chủ. Nếu môi trường không chạy được thì nói rõ điều đó trong báo cáo cuối, không bỏ qua âm thầm.
+- [x] Thêm metadata, canonical, Open Graph, `hreflang`, `sitemap.ts`, `robots.ts`, JSON-LD kiểu `Organization` và ảnh OG.
+- [x] Banner cookie mặc định chỉ cookie thiết yếu; chỗ gắn analytics là một component rỗng, bật bằng biến môi trường.
+- [x] Viết trang Privacy và Cookies bản mẫu, có dòng ghi rõ cần pháp chế thẩm định.
+- [x] Chạy Lighthouse mobile cho trang chủ. Nếu môi trường không chạy được thì nói rõ điều đó trong báo cáo cuối, không bỏ qua âm thầm.
 
 **Xong khi:** Lighthouse mobile của trang chủ từ 90 trở lên ở cả 4 mục, hoặc báo cáo nêu rõ vì sao chưa đo được. Commit: `feat: seo and consent`.
 

@@ -18,7 +18,8 @@ type Props = {
 export function Hero({ titleLine1, titleLine2, lead, image, primary, secondary }: Props) {
   return (
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden">
-      <Image src={image.src} alt={image.alt} fill priority fetchPriority="high" sizes="100vw" className="-z-20 object-cover" />
+      {/* Lower quality is invisible under the dark overlay and makes the LCP image much lighter. */}
+      <Image src={image.src} alt={image.alt} fill priority fetchPriority="high" quality={60} sizes="100vw" className="-z-20 object-cover" />
       {/* Navy overlay (text-strong token) keeps white text above 4.5:1 on any part of the photo. */}
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-r from-strong/85 via-strong/70 to-strong/40" />
       <Container className="flex min-h-[34rem] flex-col justify-center py-20 md:min-h-[40rem] md:py-28">

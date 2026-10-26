@@ -2,7 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { Analytics } from "@/components/layout/Analytics";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -13,10 +14,20 @@ import "../globals.css";
 
 const font = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700", "800"],
+  // Three weights keep the font payload small; 600/800 classes resolve to the 700 file.
+  weight: ["400", "500", "700"],
   variable: "--font-be-vietnam-pro",
   display: "swap",
+  // Not preloaded: the LCP element is the hero photo, and preloading 6 font files competed with it on mobile.
+  preload: false,
 });
+
+// Only the namespaces used by client components are sent to the browser.
+const CLIENT_NAMESPACES = ["nav", "header", "language", "cookie", "form"] as const;
+
+function pick(messages: Record<string, unknown>, keys: readonly string[]): Record<string, unknown> {
+  return Object.fromEntries(keys.filter((key) => key in messages).map((key) => [key, messages[key]]));
+}
 
 export const viewport: Viewport = {
   themeColor: "#0f5bff",
@@ -32,6 +43,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
   return {
+    metadataBase: new URL(siteConfig.url),
     title: { default: `${siteConfig.name} | ${t("tagline")}`, template: `%s | ${siteConfig.name}` },
     description: t("description"),
   };
@@ -49,7 +61,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={font.variable}>
       <body className="flex min-h-dvh flex-col">
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={pick(await getMessages(), CLIENT_NAMESPACES)}>
           <a
             href="#main"
             className="sr-only z-[70] rounded-lg bg-brand-500 px-4 py-3 font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
@@ -62,6 +74,7 @@ export default async function LocaleLayout({
           </main>
           <Footer />
           <CookieBanner />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>
