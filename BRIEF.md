@@ -330,10 +330,10 @@ Làm lần lượt 9 giai đoạn, từ 0 đến 8. Mỗi giai đoạn kết th�
 
 ### Giai đoạn 8. Kiểm thử, README và báo cáo
 
-- [ ] Viết Playwright smoke test: trang chủ `/en` và `/vi`, một trang chi tiết mỗi loại, gửi form thành công và thất bại.
-- [ ] Chạy `npm run check`, `npm run build` và `npm run test:e2e` cho đến khi cả ba sạch.
-- [ ] Viết README: cách chạy, biến môi trường, bảng việc cần làm và nơi sửa, cách thêm một Solution mới, Assets, Assumptions và các hạn chế đã biết.
-- [ ] Viết báo cáo cuối: giai đoạn nào xong, giai đoạn nào chưa, giả định đã dùng, ảnh không dùng và việc cần người làm (khoá Resend, quyền dùng logo đối tác, thẩm định pháp lý, domain).
+- [x] Viết Playwright smoke test: trang chủ `/en` và `/vi`, một trang chi tiết mỗi loại, gửi form thành công và thất bại.
+- [x] Chạy `npm run check`, `npm run build` và `npm run test:e2e` cho đến khi cả ba sạch.
+- [x] Viết README: cách chạy, biến môi trường, bảng việc cần làm và nơi sửa, cách thêm một Solution mới, Assets, Assumptions và các hạn chế đã biết.
+- [x] Viết báo cáo cuối: giai đoạn nào xong, giai đoạn nào chưa, giả định đã dùng, ảnh không dùng và việc cần người làm (khoá Resend, quyền dùng logo đối tác, thẩm định pháp lý, domain).
 
 **Xong khi:** đủ 6 điều ở mục Tiêu chí nghiệm thu. Commit: `docs: readme and final checks`.
 

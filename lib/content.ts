@@ -182,7 +182,7 @@ const readOne = cache(<T extends ContentType>(type: T, slug: string, locale: Loc
 // ---------- Public API ----------
 
 export function getSolutions(locale: Locale): Entry<Solution>[] {
-  return [...readAll("solutions", locale)].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
+  return [...readAll("solutions", locale)].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title, locale));
 }
 
 export function getSolution(locale: Locale, slug: string): Entry<Solution> | null {
@@ -190,7 +190,7 @@ export function getSolution(locale: Locale, slug: string): Entry<Solution> | nul
 }
 
 export function getProjects(locale: Locale): Entry<Project>[] {
-  return [...readAll("projects", locale)].sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
+  return [...readAll("projects", locale)].sort((a, b) => b.year - a.year || a.title.localeCompare(b.title, locale));
 }
 
 export function getFeaturedProjects(locale: Locale, limit = 3): Entry<Project>[] {
@@ -202,7 +202,7 @@ export function getProject(locale: Locale, slug: string): Entry<Project> | null 
 }
 
 export function getSegments(locale: Locale): Entry<Segment>[] {
-  return [...readAll("segments", locale)].sort((a, b) => a.title.localeCompare(b.title));
+  return [...readAll("segments", locale)].sort((a, b) => a.title.localeCompare(b.title, locale));
 }
 
 export function getSegment(locale: Locale, slug: string): Entry<Segment> | null {
@@ -220,7 +220,7 @@ export function getNewsItem(locale: Locale, slug: string): Entry<NewsItem> | nul
 
 export function getJobs(locale: Locale): Entry<Job>[] {
   return [...readAll("jobs", locale)].sort(
-    (a, b) => (b.postedAt?.getTime() ?? 0) - (a.postedAt?.getTime() ?? 0) || a.title.localeCompare(b.title),
+    (a, b) => (b.postedAt?.getTime() ?? 0) - (a.postedAt?.getTime() ?? 0) || a.title.localeCompare(b.title, locale),
   );
 }
 
@@ -234,7 +234,13 @@ export function getPage(locale: Locale, slug: string): Entry<Page> | null {
 
 export const readPartnerRecords = cache((): PartnerRecord[] => {
   const file = path.join(CONTENT_DIR, "partners.json");
-  const result = z.array(partnerSchema).safeParse(JSON.parse(fs.readFileSync(file, "utf8")));
+  let raw: unknown;
+  try {
+    raw = JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch (error) {
+    throw new ContentError(`content/partners.json: invalid JSON (${error instanceof Error ? error.message : String(error)})`);
+  }
+  const result = z.array(partnerSchema).safeParse(raw);
   if (!result.success) {
     const issues = result.error.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`);
     throw new ContentError(`content/partners.json\n  - ${issues.join("\n  - ")}`);

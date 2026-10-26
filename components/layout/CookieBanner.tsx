@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@/lib/i18n/navigation";
 import { onOpenCookieSettings, openCookieSettings, readConsent, writeConsent, type Consent } from "@/lib/consent";
 
@@ -11,12 +11,19 @@ import { onOpenCookieSettings, openCookieSettings, readConsent, writeConsent, ty
 export function CookieBanner() {
   const t = useTranslations("cookie");
   const [isVisible, setIsVisible] = useState(false);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  // Element that reopened the banner (footer button), to return focus to after a choice.
+  const returnFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     // Consent lives in localStorage, which only exists after hydration.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsVisible(readConsent() === null);
-    return onOpenCookieSettings(() => setIsVisible(true));
+    return onOpenCookieSettings(() => {
+      returnFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      setIsVisible(true);
+      requestAnimationFrame(() => headingRef.current?.focus());
+    });
   }, []);
 
   if (!isVisible) return null;
@@ -24,6 +31,8 @@ export function CookieBanner() {
   const choose = (consent: Consent) => {
     writeConsent(consent);
     setIsVisible(false);
+    returnFocusRef.current?.focus();
+    returnFocusRef.current = null;
   };
 
   return (
@@ -32,7 +41,7 @@ export function CookieBanner() {
       className="fixed inset-x-0 bottom-0 z-40 p-[var(--gutter)] md:inset-x-auto md:right-6 md:bottom-6 md:max-w-md md:p-0"
     >
       <div className="rounded-[var(--radius-card)] border border-border-soft bg-card p-6 shadow-panel">
-        <h2 id="cookie-banner-title" className="text-lg font-bold">
+        <h2 id="cookie-banner-title" ref={headingRef} tabIndex={-1} className="text-lg font-bold focus:outline-none">
           {t("title")}
         </h2>
         <p className="mt-2 text-sm text-body">

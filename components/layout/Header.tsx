@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, usePathname } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/cn";
@@ -49,6 +49,9 @@ function Dropdown({ item, pathname }: { item: Extract<ResolvedItem, { kind: "gro
   const [isOpen, setIsOpen] = useState(false);
   const panelId = useId();
   const rootRef = useRef<HTMLLIElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  // Set when a mouse hover opened the panel, so the following click does not immediately close it.
+  const openedByHoverRef = useRef(false);
   const isActive = item.children.some((child) => isActivePath(pathname, child.href));
 
   useEffect(() => {
@@ -57,7 +60,9 @@ function Dropdown({ item, pathname }: { item: Extract<ResolvedItem, { kind: "gro
       if (!rootRef.current?.contains(event.target as Node)) setIsOpen(false);
     };
     const handleKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsOpen(false);
+      if (event.key !== "Escape") return;
+      setIsOpen(false);
+      buttonRef.current?.focus();
     };
     document.addEventListener("pointerdown", handlePointer);
     document.addEventListener("keydown", handleKey);
@@ -71,17 +76,33 @@ function Dropdown({ item, pathname }: { item: Extract<ResolvedItem, { kind: "gro
     <li
       ref={rootRef}
       className="relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      // Hover only for real mouse pointers; touch devices emulate mouseenter before click.
+      onPointerEnter={(event) => {
+        if (event.pointerType !== "mouse" || isOpen) return;
+        openedByHoverRef.current = true;
+        setIsOpen(true);
+      }}
+      onPointerLeave={(event) => {
+        if (event.pointerType !== "mouse") return;
+        openedByHoverRef.current = false;
+        setIsOpen(false);
+      }}
       onBlur={(event) => {
         if (!rootRef.current?.contains(event.relatedTarget as Node | null)) setIsOpen(false);
       }}
     >
       <button
+        ref={buttonRef}
         type="button"
         aria-expanded={isOpen}
         aria-controls={panelId}
-        onClick={() => setIsOpen((open) => !open)}
+        onClick={() => {
+          if (openedByHoverRef.current) {
+            openedByHoverRef.current = false;
+            return;
+          }
+          setIsOpen((open) => !open);
+        }}
         className={cn(
           "inline-flex min-h-10 items-center gap-1 rounded-lg px-3 text-[0.95rem] font-medium hover:text-brand-500",
           isActive ? "text-brand-500" : "text-strong",
@@ -120,13 +141,24 @@ function MobileMenu({ items, pathname, onClose }: { items: ResolvedItem[]; pathn
     closeRef.current?.focus();
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    // Everything behind the dialog becomes inert, which keeps Tab and screen readers inside it.
+    const background = [...document.body.children].filter((node): node is HTMLElement => node instanceof HTMLElement && !node.hasAttribute("data-mobile-menu"));
+    background.forEach((node) => (node.inert = true));
     const handleKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
     };
+    // The overlay is hidden at lg and up, so close it if the viewport grows while it is open.
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const handleResize = (event: MediaQueryListEvent) => {
+      if (event.matches) onClose();
+    };
     document.addEventListener("keydown", handleKey);
+    desktop.addEventListener("change", handleResize);
     return () => {
       document.body.style.overflow = previousOverflow;
+      background.forEach((node) => (node.inert = false));
       document.removeEventListener("keydown", handleKey);
+      desktop.removeEventListener("change", handleResize);
     };
   }, [onClose]);
 
@@ -134,6 +166,7 @@ function MobileMenu({ items, pathname, onClose }: { items: ResolvedItem[]; pathn
 
   return (
     <div
+      data-mobile-menu=""
       role="dialog"
       aria-modal="true"
       aria-label={t("menu")}
@@ -195,16 +228,17 @@ export function Header({ segments }: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
-    menuButtonRef.current?.focus();
-  };
+    // Wait for the background to leave the inert state before moving focus back.
+    requestAnimationFrame(() => menuButtonRef.current?.focus());
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border-soft bg-card/90 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <div className="mx-auto flex h-[var(--header-height)] max-w-[var(--container-max)] items-center justify-between gap-4 px-[var(--gutter)]">
         <Link href="/" className="shrink-0 rounded-lg" aria-label={t("homeLink", { name: siteConfig.name })}>
-          <Image src={siteConfig.logo.full} alt="" width={152} height={44} priority className="h-10 w-auto md:h-11" />
+          <Image src={siteConfig.logo.full} alt="" width={152} height={44} priority className="h-10 md:h-11" style={{ width: "auto" }} />
         </Link>
 
         <nav aria-label={t("mainNav")} className="hidden lg:block">
