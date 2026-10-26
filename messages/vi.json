@@ -175,6 +175,40 @@
     "phone": "Điện thoại",
     "address": "Địa chỉ"
   },
+  "form": {
+    "title": "Gửi tin nhắn cho chúng tôi",
+    "intro": "Tất cả các trường đều bắt buộc.",
+    "name": "Họ và tên",
+    "company": "Công ty",
+    "email": "Email công việc",
+    "phone": "Điện thoại",
+    "message": "Chúng tôi có thể giúp gì cho bạn?",
+    "honeypot": "Để trống trường này",
+    "consent": "Tôi đồng ý với <link>chính sách quyền riêng tư</link> và đồng ý để NetworkAI liên hệ về yêu cầu này.",
+    "submit": "Gửi tin nhắn",
+    "submitting": "Đang gửi…",
+    "successTitle": "Cảm ơn bạn, tin nhắn đã được gửi.",
+    "successText": "Đội ngũ của chúng tôi sẽ sớm liên hệ lại.",
+    "errors": {
+      "nameRequired": "Vui lòng nhập họ và tên.",
+      "nameTooLong": "Họ tên tối đa 100 ký tự.",
+      "nameInvalid": "Họ tên phải nằm trên một dòng.",
+      "companyRequired": "Vui lòng nhập tên công ty.",
+      "companyTooLong": "Tên công ty tối đa 120 ký tự.",
+      "companyInvalid": "Tên công ty phải nằm trên một dòng.",
+      "emailInvalid": "Vui lòng nhập địa chỉ email hợp lệ.",
+      "phoneInvalid": "Vui lòng nhập số điện thoại hợp lệ (chỉ gồm số, khoảng trắng và dấu +).",
+      "messageTooShort": "Vui lòng viết ít nhất 10 ký tự.",
+      "messageTooLong": "Nội dung tối đa 2.000 ký tự.",
+      "consentRequired": "Vui lòng đồng ý với chính sách quyền riêng tư để tiếp tục."
+    },
+    "submitErrors": {
+      "invalid": "Một số trường chưa hợp lệ. Vui lòng kiểm tra lại và gửi lại.",
+      "rateLimited": "Bạn đã gửi quá nhiều tin nhắn. Vui lòng thử lại sau vài phút.",
+      "network": "Không kết nối được tới máy chủ. Vui lòng kiểm tra kết nối và thử lại.",
+      "generic": "Chưa gửi được tin nhắn. Vui lòng thử lại sau hoặc gửi email trực tiếp cho chúng tôi."
+    }
+  },
   "legal": {
     "reviewNotice": "Bản mẫu: trang này phải được pháp chế thẩm định trước khi website chạy thật.",
     "updated": "Cập nhật lần cuối: {date}"

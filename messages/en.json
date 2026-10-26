@@ -175,6 +175,40 @@
     "phone": "Phone",
     "address": "Address"
   },
+  "form": {
+    "title": "Send us a message",
+    "intro": "All fields are required.",
+    "name": "Full name",
+    "company": "Company",
+    "email": "Work email",
+    "phone": "Phone",
+    "message": "How can we help?",
+    "honeypot": "Leave this field empty",
+    "consent": "I agree to the <link>privacy policy</link> and to NetworkAI contacting me about this enquiry.",
+    "submit": "Send message",
+    "submitting": "Sending…",
+    "successTitle": "Thank you, your message has been sent.",
+    "successText": "Our team will get back to you shortly.",
+    "errors": {
+      "nameRequired": "Please enter your full name.",
+      "nameTooLong": "Name must be 100 characters or fewer.",
+      "nameInvalid": "Name must be on a single line.",
+      "companyRequired": "Please enter your company name.",
+      "companyTooLong": "Company name must be 120 characters or fewer.",
+      "companyInvalid": "Company name must be on a single line.",
+      "emailInvalid": "Please enter a valid email address.",
+      "phoneInvalid": "Please enter a valid phone number (digits, spaces and + only).",
+      "messageTooShort": "Please write at least 10 characters.",
+      "messageTooLong": "Message must be 2,000 characters or fewer.",
+      "consentRequired": "Please accept the privacy policy to continue."
+    },
+    "submitErrors": {
+      "invalid": "Some fields need attention. Please check the form and try again.",
+      "rateLimited": "Too many messages from your connection. Please try again in a few minutes.",
+      "network": "We could not reach the server. Check your connection and try again.",
+      "generic": "Your message could not be sent. Please try again later or email us directly."
+    }
+  },
   "legal": {
     "reviewNotice": "Template: this page must be reviewed by legal counsel before the site goes live.",
     "updated": "Last updated: {date}"

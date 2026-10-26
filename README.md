@@ -32,6 +32,12 @@ Work in progress. Full documentation is written in phase 8.
 - **Contact details.** Address and phone in `site.config.ts` are visible placeholders; the email is `sales@networkai.vn`.
 - **Favicon** (`app/icon.png`) is generated from `networkai-logo-icon.png`.
 
+## Known limitations
+
+- **Contact rate limit is in memory** (`lib/rate-limit.ts`, 5 requests per IP per 10 minutes). Each server instance keeps its own counter,
+  so on Vercel (several instances, cold starts) the limit is best-effort. For a strict limit, move the counter to a shared store such as Upstash Redis.
+- **No CAPTCHA** in this version (per the brief); spam protection is the honeypot field plus the rate limit.
+
 ## Assets
 
 Imported from the legacy repo `letatkhoa3000/networkai-full` (commit `a71ae97`, `public/` only), de-duplicated by MD5,

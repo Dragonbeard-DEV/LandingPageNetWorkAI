@@ -313,9 +313,9 @@ Làm lần lượt 9 giai đoạn, từ 0 đến 8. Mỗi giai đoạn kết th�
 
 ### Giai đoạn 6. Form liên hệ
 
-- [ ] Dựng form với họ tên, công ty, email, điện thoại, nội dung và ô đồng ý chính sách; kiểm tra bằng Zod ở cả client và server.
-- [ ] Viết `app/api/contact/route.ts`: honeypot, giới hạn tốc độ theo IP, gửi email qua Resend tới `CONTACT_TO_EMAIL`. Thiếu `RESEND_API_KEY` thì ghi log phía server và báo thành công ở môi trường dev, báo lỗi rõ ở production. Giới hạn tốc độ làm trong bộ nhớ; ghi hạn chế này vào README.
-- [ ] Thêm trạng thái đang gửi, thành công và lỗi, thông báo bằng hai ngôn ngữ.
+- [x] Dựng form với họ tên, công ty, email, điện thoại, nội dung và ô đồng ý chính sách; kiểm tra bằng Zod ở cả client và server.
+- [x] Viết `app/api/contact/route.ts`: honeypot, giới hạn tốc độ theo IP, gửi email qua Resend tới `CONTACT_TO_EMAIL`. Thiếu `RESEND_API_KEY` thì ghi log phía server và báo thành công ở môi trường dev, báo lỗi rõ ở production. Giới hạn tốc độ làm trong bộ nhớ; ghi hạn chế này vào README.
+- [x] Thêm trạng thái đang gửi, thành công và lỗi, thông báo bằng hai ngôn ngữ.
 
 **Xong khi:** gửi thử ở môi trường dev ghi ra log đúng nội dung, dữ liệu sai bị chặn với thông báo rõ. Commit: `feat: contact form`.
 

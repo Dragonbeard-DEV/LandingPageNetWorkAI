@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { ContactForm } from "@/components/sections/ContactForm";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { resolveLocale } from "@/lib/i18n/params";
@@ -30,7 +31,7 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
         breadcrumbLabel={common("breadcrumb")}
       />
       <Container className="grid gap-12 py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_22rem]">
-        <div id="contact-form" />
+        <ContactForm />
         <aside aria-labelledby="contact-details" className="h-fit rounded-[var(--radius-card)] border border-border-soft bg-card p-6 shadow-card">
           <h2 id="contact-details" className="text-lg font-bold">
             {t("detailsTitle")}
