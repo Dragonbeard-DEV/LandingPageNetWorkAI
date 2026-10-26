@@ -279,11 +279,11 @@ Làm lần lượt 9 giai đoạn, từ 0 đến 8. Mỗi giai đoạn kết th�
 
 ### Giai đoạn 2. Nhập ảnh và email từ dự án cũ
 
-- [ ] Clone nông repo cũ vào một thư mục tạm nằm ngoài dự án mới: `GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 https://github.com/letatkhoa3000/networkai-full <thư-mục-tạm>`. Ghi commit bằng `git rev-parse --short HEAD`; nếu khác `a71ae97` thì đối chiếu số file với bảng ở mục Tài sản và ghi chênh lệch vào Assumptions.
-- [ ] Bỏ bản trùng nội dung bằng `md5sum`, bỏ 5 file mẫu của Next.js, rồi copy ảnh vào đúng thư mục đích trong bảng ở mục Tài sản.
-- [ ] Viết `scripts/optimize-images.mjs` bằng `sharp`: ảnh chụp rộng tối đa 1920 px, WebP chất lượng 80, mỗi file dưới 300 KB; giữ nguyên SVG và PNG logo. Chạy script cho `public/images/`.
-- [ ] Mở xem từng ảnh, đặt lại tên kebab-case theo nội dung, rồi ghi vào README mục Assets: tên file, dùng ở đâu, `alt` tiếng Anh và tiếng Việt.
-- [ ] Đưa email vào `site.config.ts` và `.env.example`, rồi xoá thư mục clone tạm. Không giữ file nào khác của dự án cũ.
+- [x] Clone nông repo cũ vào một thư mục tạm nằm ngoài dự án mới: `GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 https://github.com/letatkhoa3000/networkai-full <thư-mục-tạm>`. Ghi commit bằng `git rev-parse --short HEAD`; nếu khác `a71ae97` thì đối chiếu số file với bảng ở mục Tài sản và ghi chênh lệch vào Assumptions.
+- [x] Bỏ bản trùng nội dung bằng `md5sum`, bỏ 5 file mẫu của Next.js, rồi copy ảnh vào đúng thư mục đích trong bảng ở mục Tài sản.
+- [x] Viết `scripts/optimize-images.mjs` bằng `sharp`: ảnh chụp rộng tối đa 1920 px, WebP chất lượng 80, mỗi file dưới 300 KB; giữ nguyên SVG và PNG logo. Chạy script cho `public/images/`.
+- [x] Mở xem từng ảnh, đặt lại tên kebab-case theo nội dung, rồi ghi vào README mục Assets: tên file, dùng ở đâu, `alt` tiếng Anh và tiếng Việt.
+- [x] Đưa email vào `site.config.ts` và `.env.example`, rồi xoá thư mục clone tạm. Không giữ file nào khác của dự án cũ.
 
 **Xong khi:** `public/images/` có đủ các nhóm `brand`, `projects`, `home`, `solutions`, `partners`; mọi file dưới 300 KB (trừ logo); `git status` chỉ có ảnh, script, README và hai file cấu hình email. Commit: `chore: import assets from legacy site`.
 

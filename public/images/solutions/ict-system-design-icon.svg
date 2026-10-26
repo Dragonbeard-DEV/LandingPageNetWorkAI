@@ -1,0 +1,32 @@
+<svg width="400" height="320" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="160" height="140" fill="#0a1628"/>
+  <rect x="20" y="20" width="50" height="100" rx="6" fill="#0f2040" stroke="#1e3a70" stroke-width="1.5"/>
+  <rect x="26" y="30" width="38" height="8" rx="3" fill="#1e3a70"/>
+  <rect x="26" y="44" width="38" height="8" rx="3" fill="#1e3a70"/>
+  <rect x="26" y="58" width="38" height="8" rx="3" fill="#162d58"/>
+  <rect x="26" y="72" width="38" height="8" rx="3" fill="#162d58"/>
+  <rect x="26" y="86" width="38" height="8" rx="3" fill="#1e3a70"/>
+  <rect x="26" y="100" width="38" height="8" rx="3" fill="#1e3a70"/>
+  <circle cx="56" cy="34" r="2.5" fill="#22c55e"/>
+  <circle cx="56" cy="48" r="2.5" fill="#22c55e"/>
+  <circle cx="56" cy="62" r="2.5" fill="#60a5fa"/>
+  <circle cx="56" cy="76" r="2.5" fill="#f59e0b"/>
+  <circle cx="56" cy="90" r="2.5" fill="#22c55e"/>
+  <circle cx="56" cy="104" r="2.5" fill="#22c55e"/>
+  <line x1="70" y1="34" x2="100" y2="34" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <line x1="70" y1="48" x2="100" y2="48" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <line x1="70" y1="70" x2="100" y2="70" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <line x1="70" y1="90" x2="100" y2="90" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <rect x="100" y="25" width="40" height="18" rx="4" fill="#162d58" stroke="#2563eb" stroke-width="1"/>
+  <circle cx="108" cy="34" r="2" fill="#60a5fa"/>
+  <circle cx="116" cy="34" r="2" fill="#60a5fa"/>
+  <circle cx="124" cy="34" r="2" fill="#22c55e"/>
+  <circle cx="132" cy="34" r="2" fill="#22c55e"/>
+  <rect x="100" y="60" width="40" height="18" rx="4" fill="#0f2040" stroke="#1e3a70" stroke-width="1"/>
+  <rect x="100" y="82" width="40" height="18" rx="4" fill="#0f2040" stroke="#1e3a70" stroke-width="1"/>
+  <line x1="120" y1="43" x2="120" y2="60" stroke="#2563eb" stroke-width="1.5"/>
+  <line x1="120" y1="78" x2="120" y2="82" stroke="#1e3a70" stroke-width="1.5"/>
+  <path d="M95 108 Q95 100 103 100 Q104 94 112 94 Q120 94 121 100 Q129 100 129 108 Z" fill="#1e3a70" stroke="#2563eb" stroke-width="1"/>
+  <line x1="108" y1="100" x2="108" y2="108" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <line x1="120" y1="100" x2="120" y2="108" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="2 2"/>
+</svg>

@@ -16,3 +16,105 @@ Work in progress. Full documentation is written in phase 8.
 | `next-mdx-remote` | Renders MDX bodies from `/content` in Server Components |
 | `sharp` (dev) | `scripts/optimize-images.mjs`: resize and convert photos to WebP |
 | `@playwright/test` (dev) | Smoke tests and layout screenshots |
+
+## Assets
+
+Imported from the legacy repo `letatkhoa3000/networkai-full` (commit `a71ae97`, `public/` only), de-duplicated by MD5,
+renamed to kebab-case and optimized with `npm run images:optimize` (WebP, max 1920 px, under 300 KB; SVG and PNG logos untouched).
+Alt text in both languages lives with the content that uses the image (see `content/`); the table below is the reference copy.
+
+> Partner and hotel logos, and photos showing hotel brands, are third-party trademarks. The company must confirm the right to use them before going live.
+
+### Brand (`public/images/brand/`)
+
+| File | Used in | Alt (en) | Alt (vi) |
+| --- | --- | --- | --- |
+| `networkai-logo-full.png` | Header, footer | NetworkAI logo | Logo NetworkAI |
+| `networkai-logo-icon.png` | Favicon (`app/icon.png`), JSON-LD logo | NetworkAI symbol | Biểu tượng NetworkAI |
+| `networkai-logo-full-dark.png` | Open Graph image | NetworkAI logo on a navy background | Logo NetworkAI trên nền xanh navy |
+| `networkai-logo-icon-dark.png` | Unused | NetworkAI symbol on a navy background | Biểu tượng NetworkAI trên nền xanh navy |
+| `networkai-logo-wordmark.png` | Unused | NetworkAI wordmark | Chữ NetworkAI |
+| `networkai-logo-wordmark-dark.png` | Unused | NetworkAI wordmark on a navy background | Chữ NetworkAI trên nền xanh navy |
+
+### Home (`public/images/home/`)
+
+| File | Used in | Alt (en) | Alt (vi) |
+| --- | --- | --- | --- |
+| `technicians-installing-rack.webp` | Home hero, About | Two technicians installing equipment in a network rack | Hai kỹ thuật viên lắp thiết bị vào tủ mạng |
+| `technicians-installing-rack-alt.webp` | Unused (near-duplicate) | Same as above | Như trên |
+| `technicians-installing-rack-alt-2.webp` | Unused (near-duplicate) | Same as above | Như trên |
+
+### Solutions (`public/images/solutions/`)
+
+| File | Used in | Alt (en) | Alt (vi) |
+| --- | --- | --- | --- |
+| `ict-system-design-illustration.webp` | Solution: ICT system design | Illustration of a server linked to network devices | Hình minh hoạ máy chủ kết nối với thiết bị mạng |
+| `ict-system-design-icon.svg` | Unused (icon version of the illustration) | Server and network icon | Biểu tượng máy chủ và mạng |
+
+### Projects and infrastructure photos (`public/images/projects/`)
+
+| File | Planned use | Alt (en) | Alt (vi) |
+| --- | --- | --- | --- |
+| `network-switches-rack-cabling.webp` | Solution: network infrastructure | Network switches with patch cables in a rack | Bộ chuyển mạch mạng và dây nhảy trong tủ rack |
+| `server-rack-cabinet-room.webp` | Solution: data center | Open server cabinet in an equipment room | Tủ máy chủ mở trong phòng thiết bị |
+| `control-panel-cabinet-pcb.webp` | Solution: smart building control | Control cabinet with circuit boards and wiring | Tủ điều khiển với bo mạch và dây dẫn |
+| `rack-cable-management.webp` | Solution: structured cabling | Neatly routed cables inside a rack | Cáp được đi gọn gàng bên trong tủ rack |
+| `rack-console-kvm.webp` | Solution: IT operations | Rack-mounted console with keyboard | Bàn điều khiển gắn tủ rack có bàn phím |
+| `server-rack-closed.webp` | Home: Package A | Closed server rack beside a wall | Tủ rack đóng cạnh tường |
+| `control-cabinet-wiring.webp` | Home: Package B | Wiring and controllers inside an equipment cabinet | Dây dẫn và bộ điều khiển trong tủ thiết bị |
+| `bright-hotel-lobby-lounge.webp` | Home: Package C | Bright hotel lobby lounge with sofas | Sảnh khách sạn sáng sủa với ghế sofa |
+| `resort-pool-sunset-aerial.webp` | Segment: hospitality | Aerial view of a resort pool at sunset | Toàn cảnh hồ bơi resort lúc hoàng hôn |
+| `glass-tower-hotel-render.webp` | Segment: enterprise | Rendering of glass high-rise towers | Phối cảnh toà nhà cao tầng kính |
+| `lagoon-resort-aerial.webp` | Project 1 cover | Aerial view of a lagoon-side resort | Toàn cảnh resort bên đầm phá |
+| `beach-resort-pool-aerial.webp` | Project 1 gallery | Resort pool beside a white-sand beach | Hồ bơi resort cạnh bãi cát trắng |
+| `palm-infinity-pool-sea.webp` | Project 1 gallery | Infinity pool among palm trees facing the sea | Hồ bơi vô cực giữa hàng dừa nhìn ra biển |
+| `high-rise-hotel-city-day.webp` | Project 2 cover | High-rise hotel above a city in daylight | Khách sạn cao tầng giữa thành phố ban ngày |
+| `rooftop-terrace-bar-city.webp` | Project 2 gallery | Rooftop terrace bar overlooking the city | Quầy bar sân thượng nhìn ra thành phố |
+| `ornate-hotel-lobby-bar.webp` | Project 2 gallery | Ornate hotel lobby bar with a chandelier | Quầy bar sảnh khách sạn trang trí cầu kỳ với đèn chùm |
+| `infinity-pool-pavilion-hills.webp` | Project 3 cover | Infinity pool and pavilion facing green hills | Hồ bơi vô cực và nhà chòi nhìn ra đồi xanh |
+| `lake-pavilion-walkway.webp` | Project 3 gallery | Lit walkway leading to a lakeside pavilion | Lối đi có đèn dẫn tới nhà chòi bên hồ |
+| `rock-garden-resort-dusk.webp` | Project 3 gallery | Resort terrace among large rocks at dusk | Sân hiên resort giữa những tảng đá lớn lúc chạng vạng |
+| `server-rear-cabling.webp` | News 1 cover | Rear of a server with network and power cables | Mặt sau máy chủ với cáp mạng và cáp nguồn |
+| `residential-towers-garden-pool.webp` | News 2 cover | Residential towers around a garden and pool | Các toà căn hộ quanh khu vườn và hồ bơi |
+| `city-hotel-tower-night.webp` | News 3 cover | Hotel tower lit up at night | Toà khách sạn sáng đèn về đêm |
+| `beach-hotel-facade-balconies.webp` | Unused | Beachfront hotel facade with balconies | Mặt tiền khách sạn ven biển có ban công |
+| `bay-resort-beach-hillside.webp` | Unused | Resort villas on a hillside above a bay | Biệt thự resort trên sườn đồi cạnh vịnh |
+| `beach-resort-aerial-lawn.webp` | Unused | Aerial view of a beach resort lawn | Toàn cảnh bãi cỏ resort ven biển |
+| `beachfront-resort-aerial.webp` | Unused | Aerial view of a beachfront resort | Toàn cảnh resort sát biển |
+| `boutique-hotel-white-facade.webp` | Unused | White facade of a boutique hotel | Mặt tiền trắng của khách sạn boutique |
+| `casino-gaming-floor.webp` | Unused | Hotel casino gaming floor | Khu trò chơi casino trong khách sạn |
+| `city-hotel-towers-night-traffic.webp` | Unused | Hotel towers above evening traffic | Toà khách sạn phía trên dòng xe buổi tối |
+| `coastal-resort-garden-promenade.webp` | Unused | Garden promenade of a coastal resort | Lối dạo trong vườn resort ven biển |
+| `garden-night-lighting-aerial.webp` | Unused | Garden lighting seen from above at night | Đèn sân vườn nhìn từ trên cao về đêm |
+| `green-terrace-villas-garden.webp` | Unused | Villas with planted terraces and a garden | Biệt thự có sân hiên trồng cây và khu vườn |
+| `green-terrace-villas-palms.webp` | Unused | Villas with planted terraces among palms | Biệt thự có sân hiên trồng cây giữa hàng dừa |
+| `green-terrace-villas-sky.webp` | Unused | Villas with planted terraces against the sky | Biệt thự có sân hiên trồng cây trên nền trời |
+| `high-rise-hotel-city-dusk.webp` | Unused | High-rise hotel above a city at dusk | Khách sạn cao tầng giữa thành phố lúc chạng vạng |
+| `hillside-beach-resort-villas.webp` | Unused | Hillside villas above a beach | Biệt thự trên sườn đồi cạnh bãi biển |
+| `hilltop-resort-aerial.webp` | Unused | Aerial view of a hilltop resort and pool | Toàn cảnh resort trên đồi và hồ bơi |
+| `hotel-entrance-garden-driveway.webp` | Unused | Hotel entrance with a garden driveway | Lối vào khách sạn có đường xe và vườn |
+| `hotel-entrance-night-signage.webp` | Unused | Hotel entrance with illuminated signage at night | Lối vào khách sạn với biển hiệu sáng đèn về đêm |
+| `mediterranean-resort-pool.webp` | Unused | Resort with arched facade and pool | Resort có mặt tiền vòm và hồ bơi |
+| `networkai-logo-banner.webp` | Unused (logo, not a project photo) | NetworkAI logo banner | Băng rôn logo NetworkAI |
+| `resort-hotel-landscape-aerial.webp` | Unused | Aerial view of a resort hotel in landscaped grounds | Toàn cảnh khách sạn resort giữa cảnh quan |
+| `rooftop-pool-night.webp` | Unused | Rooftop pool lit at night | Hồ bơi sân thượng sáng đèn về đêm |
+| `sea-view-terrace-lounge.webp` | Unused | Terrace lounge facing the sea | Khu ghế ngồi sân hiên nhìn ra biển |
+| `villa-garden-sea-view.webp` | Unused | Villa garden with sea view | Vườn biệt thự nhìn ra biển |
+
+Near-duplicate photos (same scene, different file) are kept but unused: every file ending in `-alt` or `-alt-2`
+(`boutique-hotel-white-facade-alt`, `casino-gaming-floor-alt`, `green-terrace-villas-garden-alt`, `hotel-entrance-night-signage-alt`,
+`lagoon-resort-aerial-alt`, `mediterranean-resort-pool-alt`, `ornate-hotel-lobby-bar-alt`, `ornate-hotel-lobby-bar-alt-2`,
+`resort-hotel-landscape-aerial-alt`, `resort-pool-sunset-aerial-alt`).
+
+### Partners (`public/images/partners/`)
+
+All used on the Partners page via `content/partners.json`, except `microsoft-square.png` and `cisco-meraki-square.webp`
+(second versions of logos already present). Alt text is "<Name> logo" / "Logo <Name>".
+
+`accor.png`, `aman-resorts.svg`, `alcatel-lucent-enterprise.webp`, `cisco-meraki.svg`, `commscope.svg`, `dell-technologies.svg`,
+`hilton-hotels-resorts.svg`, `hpe-aruba-networking.svg`, `hyatt.svg`, `ihg-hotels-resorts.svg`, `lg.svg`, `marriott-international.svg`,
+`microsoft.svg`, `nutanix.webp`, `radisson-hotel-group.webp`, `ruckus-networks.svg`, `samsung.png`, `wyndham-hotels-resorts.webp`,
+`xpossible.webp`, `zafiro.webp`.
+
+Removed: Next.js sample files (`next.svg`, `window.svg`, `globe.svg`, `vercel.svg`, `file.svg`), 6 duplicate project photos and
+1 duplicate CommScope logo (identical MD5).
