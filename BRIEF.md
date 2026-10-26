@@ -305,9 +305,9 @@ Làm lần lượt 9 giai đoạn, từ 0 đến 8. Mỗi giai đoạn kết th�
 
 ### Giai đoạn 5. Trang chủ và các trang còn lại
 
-- [ ] Dựng trang chủ đủ 8 khối, đúng thứ tự trong mục Trang chủ và thiết kế.
-- [ ] Dựng about, partners, segments, solutions, projects, news, jobs, privacy-policy, cookies và sitemap, mỗi trang đủ hai ngôn ngữ.
-- [ ] Bấm thử mọi link trong Header, Footer và CTA.
+- [x] Dựng trang chủ đủ 8 khối, đúng thứ tự trong mục Trang chủ và thiết kế.
+- [x] Dựng about, partners, segments, solutions, projects, news, jobs, privacy-policy, cookies và sitemap, mỗi trang đủ hai ngôn ngữ.
+- [x] Bấm thử mọi link trong Header, Footer và CTA.
 
 **Xong khi:** 17 route mở được ở cả `/en` và `/vi`, không có route nào trả 404 và không có link nội bộ gãy. Commit: `feat: pages`.
 
