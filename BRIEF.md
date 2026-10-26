@@ -297,9 +297,9 @@ Làm lần lượt 9 giai đoạn, từ 0 đến 8. Mỗi giai đoạn kết th�
 
 ### Giai đoạn 4. Lớp nội dung và dữ liệu mẫu
 
-- [ ] Viết Zod schema cho 6 loại nội dung và `lib/content.ts` đọc MDX và JSON; thiếu bản `vi` thì dùng bản `en`.
-- [ ] Tạo dữ liệu mẫu bằng `en` và `vi`: 6 solution, 2 segment, 3 project, 3 news, 2 job và danh sách partner từ logo đã nhập. Chữ là placeholder (ví dụ `[Mô tả giải pháp]`), ảnh lấy từ `public/images/`.
-- [ ] Viết script kiểm tra nội dung và gộp vào `npm run check`: mọi bản ghi qua Zod, mọi đường dẫn ảnh tồn tại, mọi ảnh có `alt`.
+- [x] Viết Zod schema cho 6 loại nội dung và `lib/content.ts` đọc MDX và JSON; thiếu bản `vi` thì dùng bản `en`.
+- [x] Tạo dữ liệu mẫu bằng `en` và `vi`: 6 solution, 2 segment, 3 project, 3 news, 2 job và danh sách partner từ logo đã nhập. Chữ là placeholder (ví dụ `[Mô tả giải pháp]`), ảnh lấy từ `public/images/`.
+- [x] Viết script kiểm tra nội dung và gộp vào `npm run check`: mọi bản ghi qua Zod, mọi đường dẫn ảnh tồn tại, mọi ảnh có `alt`.
 
 **Xong khi:** mọi route danh sách và chi tiết đọc được dữ liệu, script kiểm tra nội dung qua. Commit: `feat: content layer and sample data`.
 

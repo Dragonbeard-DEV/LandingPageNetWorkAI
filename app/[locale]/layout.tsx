@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { getSegments } from "@/lib/content";
 import { routing } from "@/lib/i18n/routing";
 import { siteConfig } from "@/site.config";
 import "../globals.css";
@@ -55,7 +56,7 @@ export default async function LocaleLayout({
           >
             {t("skipToContent")}
           </a>
-          <Header segments={[]} />
+          <Header segments={getSegments(locale).map(({ slug, title }) => ({ slug, title }))} />
           <main id="main" className="flex-1">
             {children}
           </main>

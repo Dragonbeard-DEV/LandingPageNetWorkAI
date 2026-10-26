@@ -60,7 +60,135 @@
     "essentialOnly": "Essential only",
     "acceptAll": "Accept all"
   },
+  "common": {
+    "breadcrumb": "Breadcrumb",
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "viewDetails": "View details",
+    "fallbackNotice": "This page is not yet available in Vietnamese. The English version is shown.",
+    "cta": {
+      "title": "Planning a project?",
+      "text": "Tell us about your site and requirements. Our team will get back to you.",
+      "button": "Contact us"
+    }
+  },
+  "solutions": {
+    "eyebrow": "Solutions",
+    "title": "Our solutions",
+    "lead": "[Introduction to the solution portfolio: what NetworkAI delivers and for whom.]",
+    "metaDescription": "Technology solutions from NetworkAI: network infrastructure, data center, structured cabling, smart building control and IT operations.",
+    "features": "Key features",
+    "relatedProjects": "Related projects",
+    "otherSolutions": "Other solutions",
+    "linkLabel": "View solution"
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "title": "Projects",
+    "lead": "[Introduction to the project portfolio.]",
+    "metaDescription": "Selected projects delivered by NetworkAI.",
+    "client": "Client",
+    "location": "Location",
+    "year": "Year",
+    "segment": "Segment",
+    "solutionsUsed": "Solutions used",
+    "gallery": "Gallery",
+    "facts": "Project facts",
+    "linkLabel": "View project",
+    "viewAll": "View all projects"
+  },
+  "segments": {
+    "eyebrow": "Segments",
+    "title": "Segments we serve",
+    "lead": "[Introduction to the industries NetworkAI works with.]",
+    "metaDescription": "The industries NetworkAI serves and the solutions for each.",
+    "relatedSolutions": "Solutions for this segment",
+    "relatedProjects": "Projects in this segment",
+    "linkLabel": "Explore segment"
+  },
+  "news": {
+    "eyebrow": "News",
+    "title": "News",
+    "lead": "[Introduction to company news and updates.]",
+    "metaDescription": "News and updates from NetworkAI.",
+    "published": "Published",
+    "tags": "Tags",
+    "backToList": "All news",
+    "empty": "No news yet.",
+    "linkLabel": "Read article"
+  },
+  "jobs": {
+    "eyebrow": "Careers",
+    "title": "Jobs",
+    "lead": "[Introduction to working at NetworkAI.]",
+    "metaDescription": "Open positions at NetworkAI.",
+    "location": "Location",
+    "type": "Type",
+    "postedAt": "Posted",
+    "apply": "Apply by email",
+    "applySubject": "Application: {title}",
+    "applyNote": "Send your CV and a short introduction to {email}.",
+    "openings": "Open positions",
+    "empty": "There are no open positions right now.",
+    "linkLabel": "View position"
+  },
   "home": {
-    "placeholder": "Home page under construction."
+    "metaTitle": "{name} | Technology solutions for B2B enterprises",
+    "heroPrimary": "Contact us",
+    "heroSecondary": "Explore solutions",
+    "introEyebrow": "About NetworkAI",
+    "solutionsEyebrow": "Solutions",
+    "solutionsTitle": "What we deliver",
+    "capabilityEyebrow": "Capability",
+    "aboutButton": "About us",
+    "contactButton": "Contact us",
+    "projectsEyebrow": "Featured projects",
+    "projectsTitle": "Recent work",
+    "packagesEyebrow": "Packages",
+    "packagesTitle": "Ready-made packages",
+    "packageButton": "Ask about {name}",
+    "ctaButton": "Get in touch"
+  },
+  "about": {
+    "eyebrow": "Company",
+    "valuesTitle": "What we value",
+    "statsTitle": "In numbers",
+    "statsNote": "Figures are placeholders until confirmed by the company.",
+    "teamTitle": "Our team"
+  },
+  "partners": {
+    "eyebrow": "Company",
+    "title": "Partners",
+    "lead": "[Introduction to NetworkAI's technology partners and the brands we have worked with.]",
+    "metaDescription": "Technology partners and brands NetworkAI works with.",
+    "logoAlt": "{name} logo",
+    "visit": "Visit {name} website",
+    "trademarkNote": "All logos are trademarks of their respective owners."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Contact us",
+    "lead": "Tell us about your project. We usually reply within [response time].",
+    "metaDescription": "Contact NetworkAI about your project.",
+    "detailsTitle": "Contact details",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address"
+  },
+  "legal": {
+    "reviewNotice": "Template: this page must be reviewed by legal counsel before the site goes live.",
+    "updated": "Last updated: {date}"
+  },
+  "sitemap": {
+    "title": "Sitemap",
+    "lead": "All pages on this website.",
+    "metaDescription": "A list of all pages on the NetworkAI website.",
+    "mainPages": "Main pages",
+    "legalPages": "Legal"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you are looking for does not exist or has moved.",
+    "home": "Back to home"
   }
 }

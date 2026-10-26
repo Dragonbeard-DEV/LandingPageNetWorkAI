@@ -60,7 +60,135 @@
     "essentialOnly": "Chỉ cookie thiết yếu",
     "acceptAll": "Chấp nhận tất cả"
   },
+  "common": {
+    "breadcrumb": "Đường dẫn",
+    "learnMore": "Tìm hiểu thêm",
+    "readMore": "Đọc tiếp",
+    "viewDetails": "Xem chi tiết",
+    "fallbackNotice": "Trang này chưa có bản tiếng Việt. Đang hiển thị bản tiếng Anh.",
+    "cta": {
+      "title": "Bạn đang lên kế hoạch cho một dự án?",
+      "text": "Hãy cho chúng tôi biết về công trình và yêu cầu của bạn. Đội ngũ của chúng tôi sẽ phản hồi.",
+      "button": "Liên hệ"
+    }
+  },
+  "solutions": {
+    "eyebrow": "Giải pháp",
+    "title": "Giải pháp của chúng tôi",
+    "lead": "[Giới thiệu danh mục giải pháp: NetworkAI cung cấp gì và cho ai.]",
+    "metaDescription": "Giải pháp công nghệ của NetworkAI: hạ tầng mạng, trung tâm dữ liệu, cáp có cấu trúc, điều khiển toà nhà thông minh và vận hành CNTT.",
+    "features": "Tính năng chính",
+    "relatedProjects": "Dự án liên quan",
+    "otherSolutions": "Giải pháp khác",
+    "linkLabel": "Xem giải pháp"
+  },
+  "projects": {
+    "eyebrow": "Dự án",
+    "title": "Dự án",
+    "lead": "[Giới thiệu danh mục dự án.]",
+    "metaDescription": "Các dự án tiêu biểu do NetworkAI triển khai.",
+    "client": "Khách hàng",
+    "location": "Địa điểm",
+    "year": "Năm",
+    "segment": "Lĩnh vực",
+    "solutionsUsed": "Giải pháp áp dụng",
+    "gallery": "Hình ảnh",
+    "facts": "Thông tin dự án",
+    "linkLabel": "Xem dự án",
+    "viewAll": "Xem tất cả dự án"
+  },
+  "segments": {
+    "eyebrow": "Lĩnh vực",
+    "title": "Lĩnh vực phục vụ",
+    "lead": "[Giới thiệu các ngành NetworkAI đang phục vụ.]",
+    "metaDescription": "Các ngành NetworkAI phục vụ và giải pháp cho từng ngành.",
+    "relatedSolutions": "Giải pháp cho lĩnh vực này",
+    "relatedProjects": "Dự án trong lĩnh vực này",
+    "linkLabel": "Xem lĩnh vực"
+  },
+  "news": {
+    "eyebrow": "Tin tức",
+    "title": "Tin tức",
+    "lead": "[Giới thiệu tin tức và cập nhật của công ty.]",
+    "metaDescription": "Tin tức và cập nhật từ NetworkAI.",
+    "published": "Ngày đăng",
+    "tags": "Thẻ",
+    "backToList": "Tất cả tin tức",
+    "empty": "Chưa có tin tức.",
+    "linkLabel": "Đọc bài"
+  },
+  "jobs": {
+    "eyebrow": "Tuyển dụng",
+    "title": "Tuyển dụng",
+    "lead": "[Giới thiệu môi trường làm việc tại NetworkAI.]",
+    "metaDescription": "Các vị trí đang tuyển tại NetworkAI.",
+    "location": "Địa điểm",
+    "type": "Hình thức",
+    "postedAt": "Ngày đăng",
+    "apply": "Ứng tuyển qua email",
+    "applySubject": "Ứng tuyển: {title}",
+    "applyNote": "Gửi CV và một đoạn giới thiệu ngắn tới {email}.",
+    "openings": "Vị trí đang tuyển",
+    "empty": "Hiện chưa có vị trí nào đang tuyển.",
+    "linkLabel": "Xem vị trí"
+  },
   "home": {
-    "placeholder": "Trang chủ đang được xây dựng."
+    "metaTitle": "{name} | Giải pháp công nghệ cho doanh nghiệp B2B",
+    "heroPrimary": "Liên hệ",
+    "heroSecondary": "Xem giải pháp",
+    "introEyebrow": "Về NetworkAI",
+    "solutionsEyebrow": "Giải pháp",
+    "solutionsTitle": "Chúng tôi cung cấp",
+    "capabilityEyebrow": "Năng lực",
+    "aboutButton": "Giới thiệu",
+    "contactButton": "Liên hệ",
+    "projectsEyebrow": "Dự án tiêu biểu",
+    "projectsTitle": "Dự án gần đây",
+    "packagesEyebrow": "Gói sản phẩm",
+    "packagesTitle": "Các gói đóng gói sẵn",
+    "packageButton": "Hỏi về {name}",
+    "ctaButton": "Liên hệ ngay"
+  },
+  "about": {
+    "eyebrow": "Công ty",
+    "valuesTitle": "Giá trị của chúng tôi",
+    "statsTitle": "Con số",
+    "statsNote": "Các số liệu là placeholder cho đến khi công ty xác nhận.",
+    "teamTitle": "Đội ngũ"
+  },
+  "partners": {
+    "eyebrow": "Công ty",
+    "title": "Đối tác",
+    "lead": "[Giới thiệu các đối tác công nghệ và thương hiệu NetworkAI đã hợp tác.]",
+    "metaDescription": "Đối tác công nghệ và thương hiệu NetworkAI hợp tác.",
+    "logoAlt": "Logo {name}",
+    "visit": "Truy cập website {name}",
+    "trademarkNote": "Mọi logo là nhãn hiệu của chủ sở hữu tương ứng."
+  },
+  "contact": {
+    "eyebrow": "Liên hệ",
+    "title": "Liên hệ với chúng tôi",
+    "lead": "Hãy cho chúng tôi biết về dự án của bạn. Chúng tôi thường phản hồi trong [thời gian phản hồi].",
+    "metaDescription": "Liên hệ NetworkAI về dự án của bạn.",
+    "detailsTitle": "Thông tin liên hệ",
+    "email": "Email",
+    "phone": "Điện thoại",
+    "address": "Địa chỉ"
+  },
+  "legal": {
+    "reviewNotice": "Bản mẫu: trang này phải được pháp chế thẩm định trước khi website chạy thật.",
+    "updated": "Cập nhật lần cuối: {date}"
+  },
+  "sitemap": {
+    "title": "Sơ đồ trang",
+    "lead": "Tất cả các trang trên website này.",
+    "metaDescription": "Danh sách tất cả các trang trên website NetworkAI.",
+    "mainPages": "Trang chính",
+    "legalPages": "Pháp lý"
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "text": "Trang bạn tìm không tồn tại hoặc đã được chuyển.",
+    "home": "Về trang chủ"
   }
 }

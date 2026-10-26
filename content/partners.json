@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Accor",
+    "logo": "/images/partners/accor.png",
+    "url": "https://group.accor.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Alcatel-Lucent Enterprise",
+    "logo": "/images/partners/alcatel-lucent-enterprise.webp",
+    "url": "https://www.al-enterprise.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Aman",
+    "logo": "/images/partners/aman-resorts.svg",
+    "url": "https://www.aman.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Cisco Meraki",
+    "logo": "/images/partners/cisco-meraki.svg",
+    "url": "https://meraki.cisco.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "CommScope",
+    "logo": "/images/partners/commscope.svg",
+    "url": "https://www.commscope.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Dell Technologies",
+    "logo": "/images/partners/dell-technologies.svg",
+    "url": "https://www.dell.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Hilton",
+    "logo": "/images/partners/hilton-hotels-resorts.svg",
+    "url": "https://www.hilton.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "HPE Aruba Networking",
+    "logo": "/images/partners/hpe-aruba-networking.svg",
+    "url": "https://www.arubanetworks.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Hyatt",
+    "logo": "/images/partners/hyatt.svg",
+    "url": "https://www.hyatt.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "IHG Hotels & Resorts",
+    "logo": "/images/partners/ihg-hotels-resorts.svg",
+    "url": "https://www.ihg.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "LG",
+    "logo": "/images/partners/lg.svg",
+    "url": "https://www.lg.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Marriott International",
+    "logo": "/images/partners/marriott-international.svg",
+    "url": "https://www.marriott.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Microsoft",
+    "logo": "/images/partners/microsoft.svg",
+    "url": "https://www.microsoft.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Nutanix",
+    "logo": "/images/partners/nutanix.webp",
+    "url": "https://www.nutanix.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Radisson Hotel Group",
+    "logo": "/images/partners/radisson-hotel-group.webp",
+    "url": "https://www.radissonhotels.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Ruckus Networks",
+    "logo": "/images/partners/ruckus-networks.svg",
+    "url": "https://www.ruckusnetworks.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Samsung",
+    "logo": "/images/partners/samsung.png",
+    "url": "https://www.samsung.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Wyndham Hotels & Resorts",
+    "logo": "/images/partners/wyndham-hotels-resorts.webp",
+    "url": "https://www.wyndhamhotels.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "XPossible",
+    "logo": "/images/partners/xpossible.webp",
+    "url": "https://example.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  },
+  {
+    "name": "Zafiro",
+    "logo": "/images/partners/zafiro.webp",
+    "url": "https://example.com/",
+    "description": {
+      "en": "[Partner description]",
+      "vi": "[Mô tả đối tác]"
+    }
+  }
+]
