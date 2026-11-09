@@ -28,6 +28,11 @@
   --page-header-from: #eef5fb;
   --page-header-to: #ffffff;
 
+  --header-dark-from: #111111;
+  --header-dark-to: #4d4d4d;
+  /* The teal of "AI" in the logo; --brand-500 is too dark to read on the dark header. */
+  --header-accent: #5bddd0;
+
   --error-bg: #fef2f2;
   --error-border: #fecaca;
   --error-text: #b91c1c;
@@ -44,7 +49,7 @@
   --container-max: 76rem;
   --gutter: 1rem;
   --section-space: 4.5rem;
-  --header-height: 4.5rem;
+  --header-height: 5rem;
 }
 
 @media (min-width: 768px) {
@@ -58,6 +63,7 @@
   --color-brand-500: var(--brand-500);
   --color-brand-600: var(--brand-600);
   --color-brand-soft: var(--brand-soft);
+  --color-header-accent: var(--header-accent);
   --color-page: var(--bg-page);
   --color-page-alt: var(--bg-page-alt);
   --color-card: var(--bg-card);
@@ -118,6 +124,10 @@
 @layer components {
   .page-header {
     background: linear-gradient(to bottom, var(--page-header-from), var(--page-header-to));
+  }
+
+  .header-dark-layer {
+    background: linear-gradient(to right, var(--header-dark-from), var(--header-dark-to));
   }
 
   /* Long-form MDX content. */
@@ -191,6 +201,26 @@
   }
   .reveal.is-visible {
     opacity: 1;
+    transform: none;
+  }
+
+  /* Home page: slower, longer moves, and cards in a row arrive one after another. */
+  .home-motion .reveal {
+    transform: translateY(40px);
+    transition:
+      opacity 1s ease,
+      transform 1s ease;
+  }
+  .home-motion .reveal.reveal-from-right {
+    transform: translateX(80px);
+  }
+  .home-motion li.reveal:nth-child(3n + 2) {
+    transition-delay: 0.15s;
+  }
+  .home-motion li.reveal:nth-child(3n) {
+    transition-delay: 0.3s;
+  }
+  .home-motion .reveal.is-visible {
     transform: none;
   }
 }

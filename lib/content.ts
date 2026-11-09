@@ -5,6 +5,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { cache } from "react";
 import { z } from "zod";
+import { techIconNames } from "@/lib/tech-icons";
 import { defaultLocale, type Locale } from "@/site.config";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
@@ -24,6 +25,8 @@ export const solutionSchema = z.object({
   title: z.string().min(1),
   tagline: z.string().min(1),
   summary: z.string().min(1),
+  /** Lists and cards show this icon; the photo appears on the detail page only. */
+  icon: z.enum(techIconNames),
   image: imageSchema,
   features: z.array(z.string().min(1)).default([]),
   relatedProjects: z.array(slugSchema).default([]),
@@ -36,6 +39,8 @@ export const projectSchema = z.object({
   client: z.string().min(1),
   location: z.string().min(1),
   year: z.number().int().min(1990).max(2100),
+  /** Display text when one year is not enough, e.g. "2024 – now". `year` still drives sorting. */
+  period: z.string().min(1).optional(),
   summary: z.string().min(1),
   coverImage: imageSchema,
   solutions: z.array(slugSchema).default([]),
@@ -73,6 +78,8 @@ export const jobSchema = z.object({
 
 export const partnerSchema = z.object({
   name: z.string().min(1),
+  /** Which block of the page it appears in: hotel groups we serve, or technology vendors we work with. */
+  group: z.enum(["client", "partner"]),
   logo: z.string().regex(/^\/images\/partners\/.+\.(webp|png|jpe?g|svg)$/),
   url: z.url(),
   description: z.record(z.string(), z.string().min(1)).optional(),
@@ -84,18 +91,24 @@ export const pageSchema = z.object({
   title: z.string().min(1),
   description: z.string().min(1),
   hero: z
-    .object({ titleLine1: z.string().min(1), titleLine2: z.string().min(1), lead: z.string().min(1), image: imageSchema })
+    .object({
+      titleLine1: z.string().min(1),
+      titleLine2: z.string().min(1),
+      lead: z.string().min(1),
+      image: imageSchema,
+      /** Further photos the home hero rotates through after `image`. */
+      slides: z.array(imageSchema).default([]),
+    })
     .optional(),
   intro: z.object({ title: z.string().min(1), chips: z.array(z.string().min(1)).min(6).max(9) }).optional(),
   capability: z.object({ quote: z.string().min(1), text: z.string().min(1) }).optional(),
   packages: z
-    .array(z.object({ name: z.string().min(1), description: z.string().min(1), image: imageSchema }))
+    .array(z.object({ name: z.string().min(1), description: z.string().min(1), icon: z.enum(techIconNames) }))
     .length(3)
     .optional(),
   cta: z.object({ title: z.string().min(1), text: z.string().min(1) }).optional(),
   values: z.array(z.object({ title: z.string().min(1), text: z.string().min(1) })).optional(),
   stats: z.array(z.object({ value: z.string().min(1), label: z.string().min(1) })).optional(),
-  team: z.array(z.object({ name: z.string().min(1), role: z.string().min(1), image: imageSchema })).optional(),
   updatedAt: dateSchema.optional(),
 });
 
@@ -121,6 +134,19 @@ export type Partner = Omit<PartnerRecord, "description"> & { description?: strin
 
 /** A parsed record: frontmatter fields plus the MDX body and which locale file was used. */
 export type Entry<T> = T & { body: string; locale: Locale; isFallback: boolean };
+
+export type MdxSection = { title: string; body: string };
+
+/** Splits an MDX body at its `## ` headings. Text before the first heading is dropped. */
+export function splitMdxSections(body: string): MdxSection[] {
+  return body
+    .split(/^## +/m)
+    .slice(1)
+    .map((chunk) => {
+      const lineEnd = chunk.indexOf("\n");
+      return { title: chunk.slice(0, lineEnd).trim(), body: chunk.slice(lineEnd + 1).trim() };
+    });
+}
 
 // ---------- Readers ----------
 

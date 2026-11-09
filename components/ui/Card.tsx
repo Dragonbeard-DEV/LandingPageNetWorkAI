@@ -2,12 +2,16 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { Link } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/cn";
+import type { TechIconName } from "@/lib/tech-icons";
+import { TechIconTile } from "./TechIcon";
 
 type Props = {
   title: string;
   description?: string;
   href?: string;
   image?: { src: string; alt: string };
+  /** Shown instead of a photo on technology cards; the photo waits for the detail page. */
+  icon?: TechIconName;
   /** Text before the title, e.g. a date or category. */
   meta?: string;
   /** Visible call to action at the bottom of a linked card. */
@@ -23,6 +27,7 @@ export function Card({
   description,
   href,
   image,
+  icon,
   meta,
   linkLabel,
   headingLevel: Heading = "h3",
@@ -50,7 +55,8 @@ export function Card({
         </div>
       )}
       <div className="flex flex-1 flex-col gap-3 p-6">
-        {meta && <p className="text-sm font-medium text-muted">{meta}</p>}
+        {icon && <TechIconTile name={icon} className="mb-2" />}
+        {meta &&<p className="text-sm font-medium text-muted">{meta}</p>}
         <Heading className="text-xl font-bold tracking-tight">
           {href ? (
             // The stretched link makes the whole card clickable while keeping one focus stop.

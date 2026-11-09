@@ -67,21 +67,23 @@ export async function Footer() {
             </address>
           </div>
 
-          <nav aria-labelledby="footer-social">
-            <h2 id="footer-social" className="text-sm font-semibold tracking-wide uppercase">
-              {t("social")}
-            </h2>
-            <ul className="mt-4 space-y-3">
-              {siteConfig.social.map((item) => (
-                <li key={item.key}>
-                  <a href={item.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                    {social(item.key)}
-                    <span className="sr-only"> ({t("opensInNewTab")})</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          {siteConfig.social.length > 0 && (
+            <nav aria-labelledby="footer-social">
+              <h2 id="footer-social" className="text-sm font-semibold tracking-wide uppercase">
+                {t("social")}
+              </h2>
+              <ul className="mt-4 space-y-3">
+                {siteConfig.social.map((item) => (
+                  <li key={item.key}>
+                    <a href={item.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                      {social(item.key)}
+                      <span className="sr-only"> ({t("opensInNewTab")})</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
         </div>
       </Container>
 

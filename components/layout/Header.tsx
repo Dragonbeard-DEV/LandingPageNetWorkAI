@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { Link, usePathname } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/cn";
@@ -18,6 +18,18 @@ type Props = {
 type ResolvedItem =
   | { kind: "link"; key: string; label: string; href: string }
   | { kind: "group"; key: string; label: string; children: { label: string; href: string }[] };
+
+const SCROLLED_THRESHOLD_PX = 16;
+
+function subscribeToScroll(onChange: () => void) {
+  window.addEventListener("scroll", onChange, { passive: true });
+  return () => window.removeEventListener("scroll", onChange);
+}
+
+function navToneClass(isOnDark: boolean, isActive: boolean): string {
+  if (isOnDark) return cn("hover:text-header-accent focus-visible:outline-white", isActive ? "text-header-accent" : "text-white");
+  return cn("hover:text-brand-500", isActive ? "text-brand-500" : "text-strong");
+}
 
 function isActivePath(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
@@ -45,7 +57,7 @@ function useResolvedNav(segments: HeaderSegment[]): ResolvedItem[] {
   });
 }
 
-function Dropdown({ item, pathname }: { item: Extract<ResolvedItem, { kind: "group" }>; pathname: string }) {
+function Dropdown({ item, pathname, isOnDark }: { item: Extract<ResolvedItem, { kind: "group" }>; pathname: string; isOnDark: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const panelId = useId();
   const rootRef = useRef<HTMLLIElement>(null);
@@ -103,10 +115,7 @@ function Dropdown({ item, pathname }: { item: Extract<ResolvedItem, { kind: "gro
           }
           setIsOpen((open) => !open);
         }}
-        className={cn(
-          "inline-flex min-h-10 items-center gap-1 rounded-lg px-3 text-[0.95rem] font-medium hover:text-brand-500",
-          isActive ? "text-brand-500" : "text-strong",
-        )}
+        className={cn("inline-flex min-h-10 items-center gap-1 rounded-lg px-3 text-[0.95rem] font-medium transition-colors", navToneClass(isOnDark, isActive))}
       >
         {item.label}
         <svg aria-hidden="true" viewBox="0 0 20 20" className={cn("size-4 transition-transform", isOpen && "rotate-180")}>
@@ -227,6 +236,12 @@ export function Header({ segments }: Props) {
   const items = useResolvedNav(segments);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const isOnDark = !useSyncExternalStore(
+    subscribeToScroll,
+    () => window.scrollY > SCROLLED_THRESHOLD_PX,
+    () => false,
+  );
+  const fadeClass = "transition-opacity duration-300 motion-reduce:transition-none";
 
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
@@ -235,10 +250,25 @@ export function Header({ segments }: Props) {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border-soft bg-card/90 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+    <header className="sticky top-0 z-50 border-b border-border-soft bg-card">
+      {/* A gradient cannot transition by itself, so it sits on its own layer and fades over the white header, covering its border too. */}
+      <div data-header-dark-layer="" aria-hidden="true" className={cn("header-dark-layer absolute inset-x-0 top-0 -bottom-px -z-10", fadeClass, isOnDark ? "opacity-100" : "opacity-0")} />
       <div className="mx-auto flex h-[var(--header-height)] max-w-[var(--container-max)] items-center justify-between gap-4 px-[var(--gutter)]">
-        <Link href="/" className="shrink-0 rounded-lg" aria-label={t("homeLink", { name: siteConfig.name })}>
-          <Image src={siteConfig.logo.full} alt="" width={152} height={44} priority className="h-10 md:h-11" style={{ width: "auto" }} />
+        <Link
+          href="/"
+          className={cn("relative shrink-0 rounded-lg", isOnDark && "focus-visible:outline-white")}
+          aria-label={t("homeLink", { name: siteConfig.name })}
+        >
+          <Image src={siteConfig.logo.header} alt="" width={245} height={56} className={cn("h-12 md:h-14", fadeClass, isOnDark ? "opacity-0" : "opacity-100")} style={{ width: "auto" }} />
+          <Image
+            src={siteConfig.logo.headerOnDark}
+            alt=""
+            width={245}
+            height={56}
+            preload
+            className={cn("absolute top-0 left-0 h-12 md:h-14", fadeClass, isOnDark ? "opacity-100" : "opacity-0")}
+            style={{ width: "auto" }}
+          />
         </Link>
 
         <nav aria-label={t("mainNav")} className="hidden lg:block">
@@ -249,27 +279,30 @@ export function Header({ segments }: Props) {
                   <Link
                     href={item.href}
                     aria-current={isActivePath(pathname, item.href) ? "page" : undefined}
-                    className="inline-flex min-h-10 items-center rounded-lg px-3 text-[0.95rem] font-medium text-strong hover:text-brand-500 aria-[current=page]:text-brand-500"
+                    className={cn("inline-flex min-h-10 items-center rounded-lg px-3 text-[0.95rem] font-medium transition-colors", navToneClass(isOnDark, isActivePath(pathname, item.href)))}
                   >
                     {item.label}
                   </Link>
                 </li>
               ) : (
-                <Dropdown key={item.key} item={item} pathname={pathname} />
+                <Dropdown key={item.key} item={item} pathname={pathname} isOnDark={isOnDark} />
               ),
             )}
           </ul>
         </nav>
 
         <div className="flex items-center gap-2">
-          <LanguageSwitcher className="hidden lg:flex" />
+          <LanguageSwitcher className="hidden lg:flex" isOnDark={isOnDark} />
           <button
             ref={menuButtonRef}
             type="button"
             onClick={() => setIsMenuOpen(true)}
             aria-expanded={isMenuOpen}
             aria-label={t("openMenu")}
-            className="inline-flex size-11 items-center justify-center rounded-lg text-strong hover:bg-soft lg:hidden"
+            className={cn(
+              "inline-flex size-11 items-center justify-center rounded-lg transition-colors lg:hidden",
+              isOnDark ? "text-white hover:bg-white/10 focus-visible:outline-white" : "text-strong hover:bg-soft",
+            )}
           >
             <svg aria-hidden="true" viewBox="0 0 24 24" className="size-6">
               <path fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
@@ -277,7 +310,7 @@ export function Header({ segments }: Props) {
           </button>
         </div>
       </div>
-      {/* Portal: the header's backdrop-filter would otherwise clip a fixed overlay to the header box. */}
+      {/* Portal: the overlay must be a direct child of body so that everything else can become inert. */}
       {isMenuOpen && createPortal(<MobileMenu items={items} pathname={pathname} onClose={closeMenu} />, document.body)}
     </header>
   );

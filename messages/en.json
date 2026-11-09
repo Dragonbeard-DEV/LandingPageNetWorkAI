@@ -1,13 +1,13 @@
 {
   "meta": {
-    "tagline": "Technology solutions for B2B enterprises",
-    "description": "NetworkAI designs and delivers technology solutions for B2B enterprises."
+    "tagline": "ICT, ELV, Smart Building and Hospitality Technology",
+    "description": "NetworkAI provides consultancy, design and system integration for hotels, resorts, mixed-use developments and high-end residences."
   },
   "nav": {
     "home": "Home",
     "company": "Company",
     "about": "About us",
-    "partners": "Partners",
+    "partners": "Clients & partners",
     "news": "News",
     "jobs": "Jobs",
     "segments": "Segments",
@@ -36,7 +36,7 @@
   },
   "footer": {
     "homeLink": "{name} home",
-    "tagline": "Technology solutions for B2B enterprises.",
+    "tagline": "Consultancy, design and system integration for ICT, ELV, Smart Building and Hospitality Technology.",
     "mainLinks": "Explore",
     "company": "Company",
     "contact": "Contact",
@@ -75,21 +75,22 @@
   "solutions": {
     "eyebrow": "Solutions",
     "title": "Our solutions",
-    "lead": "[Introduction to the solution portfolio: what NetworkAI delivers and for whom.]",
-    "metaDescription": "Technology solutions from NetworkAI: network infrastructure, data center, structured cabling, smart building control and IT operations.",
+    "lead": "From first concept to daily operation, we cover the technology that hotels, resorts and premium residences depend on.",
+    "metaDescription": "NetworkAI solutions: ICT design, ELV systems, hospitality technology, networks, data center and cloud, smart buildings, supervision, cabling and IT support.",
     "features": "Key features",
     "relatedProjects": "Related projects",
     "otherSolutions": "Other solutions",
-    "linkLabel": "View solution"
+    "linkLabel": "View solution",
+    "viewAll": "View all solutions"
   },
   "projects": {
     "eyebrow": "Projects",
     "title": "Projects",
-    "lead": "[Introduction to the project portfolio.]",
+    "lead": "A selection of the hotels, resorts and residences we have worked on across Vietnam.",
     "metaDescription": "Selected projects delivered by NetworkAI.",
-    "client": "Client",
+    "client": "Brand or owner",
     "location": "Location",
-    "year": "Year",
+    "year": "Period",
     "segment": "Segment",
     "solutionsUsed": "Solutions used",
     "gallery": "Gallery",
@@ -100,7 +101,7 @@
   "segments": {
     "eyebrow": "Segments",
     "title": "Segments we serve",
-    "lead": "[Introduction to the industries NetworkAI works with.]",
+    "lead": "We focus on properties where technology shapes the guest and resident experience.",
     "metaDescription": "The industries NetworkAI serves and the solutions for each.",
     "relatedSolutions": "Solutions for this segment",
     "relatedProjects": "Projects in this segment",
@@ -109,7 +110,7 @@
   "news": {
     "eyebrow": "News",
     "title": "News",
-    "lead": "[Introduction to company news and updates.]",
+    "lead": "Project milestones and updates from the NetworkAI team.",
     "metaDescription": "News and updates from NetworkAI.",
     "published": "Published",
     "tags": "Tags",
@@ -120,7 +121,7 @@
   "jobs": {
     "eyebrow": "Careers",
     "title": "Jobs",
-    "lead": "[Introduction to working at NetworkAI.]",
+    "lead": "Join a team that delivers technology for international hotel brands and premium developments.",
     "metaDescription": "Open positions at NetworkAI.",
     "location": "Location",
     "type": "Type",
@@ -133,7 +134,7 @@
     "linkLabel": "View position"
   },
   "home": {
-    "metaTitle": "{name} | Technology solutions for B2B enterprises",
+    "metaTitle": "{name} | ICT, ELV, Smart Building and Hospitality Technology",
     "heroPrimary": "Contact us",
     "heroSecondary": "Explore solutions",
     "introEyebrow": "About NetworkAI",
@@ -143,24 +144,33 @@
     "aboutButton": "About us",
     "contactButton": "Contact us",
     "projectsEyebrow": "Featured projects",
-    "projectsTitle": "Recent work",
-    "packagesEyebrow": "Packages",
-    "packagesTitle": "Ready-made packages",
-    "packageButton": "Ask about {name}",
-    "ctaButton": "Get in touch"
+    "projectsTitle": "Trusted by leading hotel brands",
+    "packagesEyebrow": "Service packages",
+    "packagesTitle": "Ways to work with us",
+    "packageButton": "Ask about this package",
+    "ctaButton": "Get in touch",
+    "slideshow": {
+      "region": "Background photos",
+      "pause": "Pause photo rotation",
+      "play": "Play photo rotation",
+      "goToSlide": "Show photo {number}"
+    }
   },
   "about": {
     "eyebrow": "Company",
     "valuesTitle": "What we value",
     "statsTitle": "In numbers",
-    "statsNote": "Figures are placeholders until confirmed by the company.",
-    "teamTitle": "Our team"
+    "statsNote": "From our 2026 company profile and website."
   },
   "partners": {
     "eyebrow": "Company",
-    "title": "Partners",
-    "lead": "[Introduction to NetworkAI's technology partners and the brands we have worked with.]",
-    "metaDescription": "Technology partners and brands NetworkAI works with.",
+    "title": "Clients & partners",
+    "lead": "The international hotel groups we serve and the technology vendors we work with.",
+    "metaDescription": "Hotel groups NetworkAI serves and the technology vendors it works with.",
+    "clientsTitle": "Clients",
+    "clientsIntro": "Trusted by 5-star hotel and resort groups across Vietnam.",
+    "partnersTitle": "Technology partners",
+    "partnersIntro": "The vendors whose technology we design with and deliver.",
     "logoAlt": "{name} logo",
     "visit": "Visit {name} website",
     "trademarkNote": "All logos are trademarks of their respective owners."
@@ -168,7 +178,7 @@
   "contact": {
     "eyebrow": "Contact",
     "title": "Contact us",
-    "lead": "Tell us about your project. We usually reply within [response time].",
+    "lead": "Tell us about your project and our team will get back to you.",
     "metaDescription": "Contact NetworkAI about your project.",
     "detailsTitle": "Contact details",
     "email": "Email",

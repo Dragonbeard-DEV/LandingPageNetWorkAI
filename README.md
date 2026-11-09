@@ -35,8 +35,9 @@ Set them in `.env.local` locally and in the Vercel project settings for Preview 
 | `RESEND_API_KEY` | Production | Resend API key. Without it (or without `CONTACT_FROM_EMAIL`) the contact API logs the lead on the server and reports success in development, and returns a clear "not configured" error (HTTP 503) in production |
 | `CONTACT_TO_EMAIL` | No | Inbox that receives leads. Default `sales@networkai.vn` |
 | `CONTACT_FROM_EMAIL` | Production | Sender, e.g. `NetworkAI Website <no-reply@your-domain>`; the domain must be verified in Resend |
-| `NEXT_PUBLIC_SITE_URL` | Production | Public origin used for canonical URLs, hreflang, `sitemap.xml`, `robots.txt` and Open Graph. Default `https://example.com` |
+| `NEXT_PUBLIC_SITE_URL` | Production | Public origin used for canonical URLs, hreflang, `sitemap.xml`, `robots.txt` and Open Graph. Default `https://www.networkai.vn` |
 | `NEXT_PUBLIC_ANALYTICS_ENABLED` | No | `true` turns on the analytics slot (`components/layout/Analytics.tsx`), which still waits for "Accept all" in the cookie banner |
+| `SITE_NOINDEX` | Test deployments | `true` at build time sends `X-Robots-Tag: noindex, nofollow` on every response. Leave unset on the real site |
 
 ## Project structure
 
@@ -86,12 +87,13 @@ A record without a `vi.mdx` falls back to `en.mdx` and shows a short notice. `en
    title: "Wi-Fi design"
    tagline: "One line shown on cards"
    summary: "One or two sentences for the detail page and search engines"
-   image:
+   icon: "network"                  # shown on cards; names are listed in lib/tech-icons.ts
+   image:                           # shown on the detail page
      src: "/images/solutions/wifi-design.webp"
      alt: "Describe the photo"
    features: ["Feature 1", "Feature 2"]         # optional
-   relatedProjects: ["sample-beach-resort"]     # optional, project slugs
-   order: 7                                     # optional, position in lists
+   relatedProjects: ["amanoi-resort"]           # optional, project slugs
+   order: 10                                    # optional, position in lists
    ---
 
    ## Overview
@@ -133,6 +135,11 @@ built with `NEXT_PUBLIC_SITE_URL=http://localhost:3200` so the canonical URL mat
 Two runs each. Performance has a small margin; LCP is the hero photo (about 3.2–3.4 s under simulated slow 4G), CLS is 0–0.001.
 Real numbers on Vercel will differ; re-check after deploying with PageSpeed Insights.
 
+Re-measured on 2026-11-02 after adding the hero slideshow and real content, `/vi`, three alternating runs on one machine:
+Performance 67–87 (LCP 3.9–4.5 s), against 79–83 (LCP 4.5–5.0 s) for the previous commit under the same conditions.
+Both are below the earlier table, so the difference comes from the measuring conditions rather than the slideshow, but the 90 target is not
+confirmed on this machine. Accessibility, Best Practices and SEO were 100 on `/en` and `/vi`. Re-check on the deployed site.
+
 ## Libraries
 
 | Package | Why |
@@ -162,15 +169,20 @@ Real numbers on Vercel will differ; re-check after deploying with PageSpeed Insi
 - **Logo colours.** The NetworkAI logo uses navy and a blue-to-cyan gradient, slightly different from `#0f5bff`.
   The brief's palette was kept unchanged; the logo is used as-is. `networkai-logo-full.png` had its transparent padding trimmed (no visual change).
 - **Muted text on tinted backgrounds** uses `#5a6d88` (token `--text-muted-on-tint`) instead of `#61748e`, to stay at or above 4.5:1.
-- **Contact details.** Address and phone in `site.config.ts` are visible placeholders; the email is `sales@networkai.vn`.
+- **Contact details** in `site.config.ts` come from the 2026 company profile. Social links are empty because no company profiles were provided; the footer column appears once entries are added.
 - **Favicon** (`app/icon.png`) is generated from `networkai-logo-icon.png`; the Open Graph image `networkai-og-default.png` (1200×630)
   is generated from `networkai-logo-full.png` on the `--brand-soft` background.
 - **Extra content type `pages`** (`content/pages/{home,about,privacy-policy,cookies}`) holds long text for those pages, so no page copy is hard-coded.
-- **Sample data is visibly placeholder** (`[…]`). Exceptions that a schema requires as real values: project `year` (2023–2025),
-  news and job dates, and solution/segment titles (generic service names, not claims). Replace them with real data.
-- **Home hero headline** uses the positioning from the brief ("Technology solutions for B2B enterprises").
-- **Partners page** lists all 20 imported logos (vendors and hotel brands) under "Partners"; URLs point to each brand's public site,
-  except XPossible and Zafiro (unknown, set to `https://example.com/`).
+- **Content replaces the brief's placeholders, on the owner's instruction** (2026-11-02). Projects, partners and figures come from the
+  2026 company profile and www.networkai.vn. Technology explanations are general knowledge. These items are drafted and need confirming:
+  the three service packages, the two job openings, the news publication dates (the date of the post, not of the event), and the values text.
+- **Project photos.** Only Panoma, Amanoi, Casamia and Novotel use images from the company profile. The other 12 covers are photos from the
+  legacy library chosen by building type; they may not show that property.
+- **Solutions and packages show icons** (`components/ui/TechIcon.tsx`, hand-drawn SVG, no new dependency); real photos appear on the detail pages.
+- **Hero slideshow** rotates every 6 seconds, and has pause and per-photo controls. It does not start on its own under `prefers-reduced-motion`.
+- **Home hero headline** follows the company profile's positioning (ICT, ELV, Smart Building and hospitality).
+- **Partners page** has two blocks, set by `group` in `content/partners.json` and matching the company profile: 8 hotel groups as clients (page 4) and 24 technology vendors as partners (page 5).
+  Logos cropped from the profile are low resolution; replace them with official files when available.
 - **Font**: Be Vietnam Pro (Latin + Vietnamese) with weights 400, 500 and 700, not preloaded, to keep the mobile LCP under budget;
   `font-semibold`/`font-extrabold` render with the 700 file.
 - **Images**: `images.qualities` is `[60, 75]`; the hero uses 60 because it sits under a dark overlay.
@@ -200,9 +212,9 @@ Real numbers on Vercel will differ; re-check after deploying with PageSpeed Insi
 
 - Resend: create the account, verify the sending domain, set `RESEND_API_KEY` and `CONTACT_FROM_EMAIL`.
 - Domain: buy/configure it and set `NEXT_PUBLIC_SITE_URL`.
-- Legal: have counsel review and complete the privacy and cookie policies; fill in the company's legal name.
-- Rights: confirm the right to use every partner and hotel logo, and photos that show hotel brands.
-- Content: replace every `[placeholder]`, the sample years and dates, the address and phone in `site.config.ts`, and the social links.
+- Legal: have counsel review the privacy and cookie policies; confirm the company's legal name.
+- Rights: confirm the right to use every partner and hotel logo, and photos that show hotel brands, including the images taken from the company profile.
+- Content: confirm the items listed under Assumptions, add social links, and replace generic project covers with real photos.
 
 ## Assets
 
@@ -216,7 +228,9 @@ Alt text in both languages lives with the content that uses the image (see `cont
 
 | File | Used in | Alt (en) | Alt (vi) |
 | --- | --- | --- | --- |
-| `networkai-logo-full.png` | Header, footer | NetworkAI logo | Logo NetworkAI |
+| `networkai-logo-full.png` | Footer | NetworkAI logo | Logo NetworkAI |
+| `networkai-logo-header.png` | Header once scrolled; generated from `networkai-logo-full.png` with the text enlarged 1.45x | Decorative (the home link has the name) | Trang trí (liên kết trang chủ đã có tên) |
+| `networkai-logo-header-on-dark.png` | Header at the top of the page; same as above with the blue text recoloured white | Decorative (the home link has the name) | Trang trí (liên kết trang chủ đã có tên) |
 | `networkai-logo-icon.png` | Favicon (`app/icon.png`), JSON-LD logo | NetworkAI symbol | Biểu tượng NetworkAI |
 | `networkai-og-default.png` | Default Open Graph image (generated) | NetworkAI logo | Logo NetworkAI |
 | `networkai-logo-full-dark.png` | Unused | NetworkAI logo on a navy background | Logo NetworkAI trên nền xanh navy |
@@ -228,9 +242,22 @@ Alt text in both languages lives with the content that uses the image (see `cont
 
 | File | Used in | Alt (en) | Alt (vi) |
 | --- | --- | --- | --- |
-| `technicians-installing-rack.webp` | Home hero, About | Two technicians installing equipment in a network rack | Hai kỹ thuật viên lắp thiết bị vào tủ mạng |
-| `technicians-installing-rack-alt.webp` | Unused (near-duplicate) | Same as above | Như trên |
+| `technicians-installing-rack.webp` | Unused | Two technicians installing equipment in a network rack | Hai kỹ thuật viên lắp thiết bị vào tủ mạng |
+| `technicians-installing-rack-alt.webp` | Design review & supervision solution (near-duplicate) | Same as above | Như trên |
 | `technicians-installing-rack-alt-2.webp` | Unused (near-duplicate) | Same as above | Như trên |
+| `hero-fiber-optic-light.webp` | Home hero slide | Abstract streaks of light from fiber optic strands | Những vệt sáng trừu tượng từ sợi cáp quang |
+| `hero-resort-night-aerial.webp` | Home hero slide | Aerial view of a seaside resort lit up at dusk | Toàn cảnh khu nghỉ dưỡng ven biển lên đèn lúc chiều tối |
+| `hero-server-hardware.webp` | Home hero slide | Rear of a server chassis with power and data cables | Mặt sau khung máy chủ với cáp nguồn và cáp dữ liệu |
+| `hero-glass-tower-reflection.webp` | Home hero slide | Glass tower reflected in the facade of a modern building | Toà tháp kính phản chiếu trên mặt dựng của một công trình hiện đại |
+
+Hero slide sources: [Fiber Optic](https://commons.wikimedia.org/wiki/File:Fiber_Optic_(Unsplash).jpg) (Christopher Burns, CC0),
+[Beautiful technology](https://commons.wikimedia.org/wiki/File:Beautiful_technology_(Unsplash).jpg) (CC0), and a
+[resort at night](https://commons.wikimedia.org/wiki/File:%D0%9D%D0%BE%D1%89%D0%B5%D0%BD_%D0%B8%D0%B7%D0%B3%D0%BB%D0%B5%D0%B4_%D0%BA%D1%8A%D0%BC_%D0%BA%D1%83%D1%80%D0%BE%D1%80%D1%82%D0%B0_%D0%BE%D1%82_%D0%BF%D1%82%D0%B8%D1%87%D0%B8_%D0%BF%D0%BE%D0%B3%D0%BB%D0%B5%D0%B4.jpg) (CC0), all from Wikimedia Commons.
+The glass tower is the cover photo of the 2026 company profile; its original license is unknown, so the company should confirm it.
+
+The About page photo `public/images/about/knx-lighting-control-panel.webp` comes from a
+[LinkedIn post by Mouhamad Kassem EL-Mourad](https://www.linkedin.com/posts/mouhamad-kassem-el-mourad-a2a60a26a_a-knx-lighting-control-system-panel-is-essentially-activity-7456559491950702592-NJvS), used at the owner's request (2026-11-04). No license is stated, so get permission or replace it before going live.
+Until then the About page uses `public/images/projects/control-cabinet-wiring.webp`, and `.vercelignore` keeps the KNX file out of deployments. To restore it, point `hero.image` in `content/pages/about/{en,vi}.mdx` back at the file, remove it from `.vercelignore` and update the About test in `tests/e2e/pages.spec.ts`.
 
 ### Solutions (`public/images/solutions/`)
 
@@ -241,6 +268,10 @@ Alt text in both languages lives with the content that uses the image (see `cont
 
 ### Projects and infrastructure photos (`public/images/projects/`)
 
+The "Planned use" column records the original sample assignment; `content/` is now the source of truth for where a photo is used.
+`panoma-penthouse-b4-2.webp`, `amanoi-resort-hillside.webp`, `hilton-tapestry-casamia-render.webp` and `novotel-naman-village.webp` come from the
+2026 company profile. Panoma (600 px) and Novotel (400 px) are low resolution and look soft at full width; replace them with originals.
+
 | File | Planned use | Alt (en) | Alt (vi) |
 | --- | --- | --- | --- |
 | `network-switches-rack-cabling.webp` | Solution: network infrastructure | Network switches with patch cables in a rack | Bộ chuyển mạch mạng và dây nhảy trong tủ rack |
@@ -250,7 +281,7 @@ Alt text in both languages lives with the content that uses the image (see `cont
 | `rack-console-kvm.webp` | Solution: IT operations | Rack-mounted console with keyboard | Bàn điều khiển gắn tủ rack có bàn phím |
 | `server-rack-closed.webp` | Home: Package A | Closed server rack beside a wall | Tủ rack đóng cạnh tường |
 | `control-cabinet-wiring.webp` | Home: Package B | Wiring and controllers inside an equipment cabinet | Dây dẫn và bộ điều khiển trong tủ thiết bị |
-| `bright-hotel-lobby-lounge.webp` | Home: Package C | Bright hotel lobby lounge with sofas | Sảnh khách sạn sáng sủa với ghế sofa |
+| `bright-hotel-lobby-lounge.webp` | Solution: hospitality technology | Bright hotel lobby lounge with sofas | Sảnh khách sạn sáng sủa với ghế sofa |
 | `resort-pool-sunset-aerial.webp` | Segment: hospitality | Aerial view of a resort pool at sunset | Toàn cảnh hồ bơi resort lúc hoàng hôn |
 | `glass-tower-hotel-render.webp` | Segment: enterprise | Rendering of glass high-rise towers | Phối cảnh toà nhà cao tầng kính |
 | `lagoon-resort-aerial.webp` | Project 1 cover | Aerial view of a lagoon-side resort | Toàn cảnh resort bên đầm phá |
@@ -297,12 +328,16 @@ Near-duplicate photos (same scene, different file) are kept but unused: every fi
 ### Partners (`public/images/partners/`)
 
 All used on the Partners page via `content/partners.json`, except `microsoft-square.png` and `cisco-meraki-square.webp`
-(second versions of logos already present). Alt text is "<Name> logo" / "Logo <Name>".
+(second versions of logos already present) and `nutanix.webp` (not in the company profile). Alt text is "<Name> logo" / "Logo <Name>".
 
 `accor.png`, `aman-resorts.svg`, `alcatel-lucent-enterprise.webp`, `cisco-meraki.svg`, `commscope.svg`, `dell-technologies.svg`,
 `hilton-hotels-resorts.svg`, `hpe-aruba-networking.svg`, `hyatt.svg`, `ihg-hotels-resorts.svg`, `lg.svg`, `marriott-international.svg`,
-`microsoft.svg`, `nutanix.webp`, `radisson-hotel-group.webp`, `ruckus-networks.svg`, `samsung.png`, `wyndham-hotels-resorts.webp`,
-`xpossible.webp`, `zafiro.webp`.
+`microsoft.svg`, `nutanix.webp`, `radisson-hotel-group.webp`, `ruckus-networks.svg`, `samsung.png`, `xpossible.webp`, `zafiro.webp`.
+
+Cropped from the 2026 company profile: `acer.png`, `cisco.png`, `fortinet.png`, `hewlett-packard-enterprise.png`, `ibm.png`, `mcoms.png`, `panduit.png`,
+`polycom.png`, `qsan.png`, `sony.png`, `synology.png`, `tyco.png`, `vmware.png`, `wyndham-hotels-resorts-group.png`.
+
+`wyndham-hotels-resorts.webp` is unused: it is the logo of one resort rather than of the group.
 
 Removed: Next.js sample files (`next.svg`, `window.svg`, `globe.svg`, `vercel.svg`, `file.svg`), 6 duplicate project photos and
 1 duplicate CommScope logo (identical MD5).

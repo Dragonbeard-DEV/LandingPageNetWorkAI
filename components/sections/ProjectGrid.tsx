@@ -18,7 +18,7 @@ export function ProjectGrid({ projects, linkLabel, headingLevel = "h3" }: Props)
             title={project.title}
             description={project.summary}
             image={project.coverImage}
-            meta={`${project.location} · ${project.year}`}
+            meta={`${project.location} · ${project.period ?? project.year}`}
             linkLabel={linkLabel}
             headingLevel={headingLevel}
           />

@@ -1,13 +1,13 @@
 {
   "meta": {
-    "tagline": "Giải pháp công nghệ cho doanh nghiệp B2B",
-    "description": "NetworkAI thiết kế và triển khai giải pháp công nghệ cho doanh nghiệp B2B."
+    "tagline": "ICT, ELV, Smart Building và công nghệ khách sạn",
+    "description": "NetworkAI cung cấp dịch vụ tư vấn, thiết kế và tích hợp hệ thống cho khách sạn, resort, khu phức hợp và nhà ở cao cấp."
   },
   "nav": {
     "home": "Trang chủ",
     "company": "Công ty",
     "about": "Giới thiệu",
-    "partners": "Đối tác",
+    "partners": "Khách hàng & đối tác",
     "news": "Tin tức",
     "jobs": "Tuyển dụng",
     "segments": "Lĩnh vực",
@@ -36,7 +36,7 @@
   },
   "footer": {
     "homeLink": "Trang chủ {name}",
-    "tagline": "Giải pháp công nghệ cho doanh nghiệp B2B.",
+    "tagline": "Tư vấn, thiết kế và tích hợp hệ thống ICT, ELV, Smart Building và công nghệ khách sạn.",
     "mainLinks": "Khám phá",
     "company": "Công ty",
     "contact": "Liên hệ",
@@ -75,21 +75,22 @@
   "solutions": {
     "eyebrow": "Giải pháp",
     "title": "Giải pháp của chúng tôi",
-    "lead": "[Giới thiệu danh mục giải pháp: NetworkAI cung cấp gì và cho ai.]",
-    "metaDescription": "Giải pháp công nghệ của NetworkAI: hạ tầng mạng, trung tâm dữ liệu, cáp có cấu trúc, điều khiển toà nhà thông minh và vận hành CNTT.",
+    "lead": "Từ ý tưởng ban đầu đến vận hành hằng ngày, chúng tôi đảm nhận những công nghệ mà khách sạn, resort và nhà ở cao cấp phụ thuộc vào.",
+    "metaDescription": "Giải pháp của NetworkAI: thiết kế ICT, hệ thống ELV, công nghệ khách sạn, hạ tầng mạng, trung tâm dữ liệu và đám mây, toà nhà thông minh, giám sát, cáp và hỗ trợ CNTT.",
     "features": "Tính năng chính",
     "relatedProjects": "Dự án liên quan",
     "otherSolutions": "Giải pháp khác",
-    "linkLabel": "Xem giải pháp"
+    "linkLabel": "Xem giải pháp",
+    "viewAll": "Xem tất cả giải pháp"
   },
   "projects": {
     "eyebrow": "Dự án",
     "title": "Dự án",
-    "lead": "[Giới thiệu danh mục dự án.]",
+    "lead": "Một số khách sạn, resort và nhà ở chúng tôi đã thực hiện trên khắp Việt Nam.",
     "metaDescription": "Các dự án tiêu biểu do NetworkAI triển khai.",
-    "client": "Khách hàng",
+    "client": "Thương hiệu hoặc chủ sở hữu",
     "location": "Địa điểm",
-    "year": "Năm",
+    "year": "Thời gian",
     "segment": "Lĩnh vực",
     "solutionsUsed": "Giải pháp áp dụng",
     "gallery": "Hình ảnh",
@@ -100,7 +101,7 @@
   "segments": {
     "eyebrow": "Lĩnh vực",
     "title": "Lĩnh vực phục vụ",
-    "lead": "[Giới thiệu các ngành NetworkAI đang phục vụ.]",
+    "lead": "Chúng tôi tập trung vào những công trình mà công nghệ định hình trải nghiệm của khách và cư dân.",
     "metaDescription": "Các ngành NetworkAI phục vụ và giải pháp cho từng ngành.",
     "relatedSolutions": "Giải pháp cho lĩnh vực này",
     "relatedProjects": "Dự án trong lĩnh vực này",
@@ -109,7 +110,7 @@
   "news": {
     "eyebrow": "Tin tức",
     "title": "Tin tức",
-    "lead": "[Giới thiệu tin tức và cập nhật của công ty.]",
+    "lead": "Các cột mốc dự án và tin tức từ đội ngũ NetworkAI.",
     "metaDescription": "Tin tức và cập nhật từ NetworkAI.",
     "published": "Ngày đăng",
     "tags": "Thẻ",
@@ -120,7 +121,7 @@
   "jobs": {
     "eyebrow": "Tuyển dụng",
     "title": "Tuyển dụng",
-    "lead": "[Giới thiệu môi trường làm việc tại NetworkAI.]",
+    "lead": "Gia nhập đội ngũ triển khai công nghệ cho các thương hiệu khách sạn quốc tế và công trình cao cấp.",
     "metaDescription": "Các vị trí đang tuyển tại NetworkAI.",
     "location": "Địa điểm",
     "type": "Hình thức",
@@ -133,7 +134,7 @@
     "linkLabel": "Xem vị trí"
   },
   "home": {
-    "metaTitle": "{name} | Giải pháp công nghệ cho doanh nghiệp B2B",
+    "metaTitle": "{name} | ICT, ELV, Smart Building và công nghệ khách sạn",
     "heroPrimary": "Liên hệ",
     "heroSecondary": "Xem giải pháp",
     "introEyebrow": "Về NetworkAI",
@@ -143,24 +144,33 @@
     "aboutButton": "Giới thiệu",
     "contactButton": "Liên hệ",
     "projectsEyebrow": "Dự án tiêu biểu",
-    "projectsTitle": "Dự án gần đây",
-    "packagesEyebrow": "Gói sản phẩm",
-    "packagesTitle": "Các gói đóng gói sẵn",
-    "packageButton": "Hỏi về {name}",
-    "ctaButton": "Liên hệ ngay"
+    "projectsTitle": "Được các thương hiệu khách sạn hàng đầu tin tưởng",
+    "packagesEyebrow": "Gói dịch vụ",
+    "packagesTitle": "Các hình thức hợp tác",
+    "packageButton": "Hỏi về gói này",
+    "ctaButton": "Liên hệ ngay",
+    "slideshow": {
+      "region": "Ảnh nền",
+      "pause": "Tạm dừng đổi ảnh",
+      "play": "Tiếp tục đổi ảnh",
+      "goToSlide": "Hiển thị ảnh {number}"
+    }
   },
   "about": {
     "eyebrow": "Công ty",
     "valuesTitle": "Giá trị của chúng tôi",
     "statsTitle": "Con số",
-    "statsNote": "Các số liệu là placeholder cho đến khi công ty xác nhận.",
-    "teamTitle": "Đội ngũ"
+    "statsNote": "Theo hồ sơ năng lực 2026 và website của công ty."
   },
   "partners": {
     "eyebrow": "Công ty",
-    "title": "Đối tác",
-    "lead": "[Giới thiệu các đối tác công nghệ và thương hiệu NetworkAI đã hợp tác.]",
-    "metaDescription": "Đối tác công nghệ và thương hiệu NetworkAI hợp tác.",
+    "title": "Khách hàng & đối tác",
+    "lead": "Các tập đoàn khách sạn quốc tế chúng tôi phục vụ và các hãng công nghệ chúng tôi hợp tác.",
+    "metaDescription": "Các tập đoàn khách sạn NetworkAI phục vụ và các hãng công nghệ NetworkAI hợp tác.",
+    "clientsTitle": "Khách hàng",
+    "clientsIntro": "Được các tập đoàn khách sạn và resort 5 sao trên khắp Việt Nam tin tưởng.",
+    "partnersTitle": "Đối tác công nghệ",
+    "partnersIntro": "Các hãng có công nghệ được chúng tôi dùng trong thiết kế và triển khai.",
     "logoAlt": "Logo {name}",
     "visit": "Truy cập website {name}",
     "trademarkNote": "Mọi logo là nhãn hiệu của chủ sở hữu tương ứng."
@@ -168,7 +178,7 @@
   "contact": {
     "eyebrow": "Liên hệ",
     "title": "Liên hệ với chúng tôi",
-    "lead": "Hãy cho chúng tôi biết về dự án của bạn. Chúng tôi thường phản hồi trong [thời gian phản hồi].",
+    "lead": "Hãy cho chúng tôi biết về dự án của bạn, đội ngũ của chúng tôi sẽ phản hồi.",
     "metaDescription": "Liên hệ NetworkAI về dự án của bạn.",
     "detailsTitle": "Thông tin liên hệ",
     "email": "Email",

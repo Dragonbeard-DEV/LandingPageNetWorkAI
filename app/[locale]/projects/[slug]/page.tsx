@@ -84,7 +84,7 @@ export default async function ProjectPage({ params }: PageProps<"/[locale]/proje
               </div>
               <div>
                 <dt className="text-sm text-muted">{t("year")}</dt>
-                <dd className="font-medium text-strong">{project.year}</dd>
+                <dd className="font-medium text-strong">{project.period ?? project.year}</dd>
               </div>
               {segment && (
                 <div>
