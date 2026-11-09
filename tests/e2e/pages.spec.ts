@@ -22,7 +22,9 @@ test.describe("home page", () => {
     await expect(page.locator("#systems li.reveal")).toHaveCount(4);
     await expect(page.locator("#systems li.reveal li")).toHaveCount(16);
     await expect(page.locator("#featured-projects li")).toHaveCount(3);
-    await expect(page.locator("#fieldwork figure")).toHaveCount(6);
+    // The home page previews; the full photo set lives on the About page.
+    await expect(page.locator("#fieldwork figure")).toHaveCount(3);
+    await expect(page.locator("#fieldwork").getByRole("link", { name: "See more site photos" })).toHaveAttribute("href", "/en/about#fieldwork");
     await expect(page.getByRole("contentinfo")).toBeVisible();
     await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
   });
@@ -297,7 +299,43 @@ test("technology cards use icons and the photo appears on the detail page", asyn
   await expect(page.getByRole("img", { name: "Server racks in a server room" })).toBeVisible();
 });
 
+test.describe("pages that hold the detail the home page previews", () => {
+  test.beforeEach(async ({ page }) => dismissCookies(page));
+
+  test("services overview links to four service pages with scope and a four-step process", async ({ page }) => {
+    await page.goto("/en/services");
+    const main = page.getByRole("main");
+    await expect(main.locator("li.reveal h2")).toHaveCount(4);
+    await main.getByRole("link", { name: "Design consultancy" }).click();
+    await expect(page).toHaveURL(/\/en\/services\/design-consultancy$/);
+    await expect(page.locator("#approaches li")).toHaveCount(2);
+    await expect(page.locator("#scope li")).toHaveCount(4);
+    await expect(page.locator("#process li")).toHaveCount(4);
+    await expect(page.locator("#other-services li")).toHaveCount(3);
+  });
+
+  test("ELV solution lists all sixteen systems with descriptions", async ({ page }) => {
+    await page.goto("/vi/solutions/elv-systems");
+    await expect(page.locator("#systems h2")).toHaveText("16 hệ thống, 4 nhóm");
+    await expect(page.locator("#systems li")).toHaveCount(16);
+    await expect(page.locator("#systems").getByText("Kết nối PMS", { exact: true })).toHaveCount(3);
+  });
+
+  test("About shows every site photo labelled by work and phase", async ({ page }) => {
+    await page.goto("/en/about");
+    await expect(page.locator("#fieldwork figure")).toHaveCount(9);
+    await expect(page.locator("#fieldwork figcaption").first()).toHaveText("Security monitoring centre");
+  });
+
+  test("contact page lists what to include in a first message", async ({ page }) => {
+    await page.goto("/vi/contact");
+    const prepare = page.getByRole("complementary", { name: "Thông tin nên gửi kèm" });
+    await expect(prepare.locator("li")).toHaveCount(4);
+  });
+});
+
 const detailPages = [
+  { path: "services/design-consultancy", en: "Design consultancy", vi: "Tư vấn thiết kế" },
   { path: "solutions/data-center", en: "Data center and cloud", vi: "Trung tâm dữ liệu và đám mây" },
   { path: "projects/amanoi-resort", en: "Amanoi Resort", vi: "Amanoi Resort" },
   { path: "segments/hospitality", en: "Hospitality", vi: "Khách sạn và nghỉ dưỡng" },

@@ -23,6 +23,7 @@ const errors: string[] = [];
 const warnings: string[] = [];
 const usedImages = new Set<string>();
 const records: Record<ContentType, Map<string, Record<string, unknown>>> = {
+  services: new Map(),
   solutions: new Map(),
   projects: new Map(),
   segments: new Map(),

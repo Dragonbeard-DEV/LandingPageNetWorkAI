@@ -3,8 +3,8 @@ import { listSlugs, type ContentType } from "@/lib/content";
 import { absoluteUrl, localizedPath } from "@/lib/seo/metadata";
 import { defaultLocale, locales } from "@/site.config";
 
-const STATIC_PATHS = ["/", "/about", "/partners", "/news", "/jobs", "/segments", "/solutions", "/projects", "/contact", "/privacy-policy", "/cookies", "/sitemap"];
-const DETAIL_TYPES: ContentType[] = ["solutions", "projects", "segments", "news", "jobs"];
+const STATIC_PATHS = ["/", "/about", "/partners", "/news", "/jobs", "/segments", "/services", "/solutions", "/projects", "/contact", "/privacy-policy", "/cookies", "/sitemap"];
+const DETAIL_TYPES: ContentType[] = ["services", "solutions", "projects", "segments", "news", "jobs"];
 
 /** sitemap.xml with every localized URL and its hreflang alternates. */
 export default function sitemap(): MetadataRoute.Sitemap {

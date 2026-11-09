@@ -7,6 +7,7 @@ import { FallbackNotice } from "@/components/sections/FallbackNotice";
 import { MdxContent } from "@/components/sections/MdxContent";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { ProjectGrid } from "@/components/sections/ProjectGrid";
+import { SystemCatalog } from "@/components/sections/SystemCatalog";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -45,6 +46,7 @@ export default async function SolutionPage({ params }: PageProps<"/[locale]/solu
   const common = await getTranslations("common");
   const nav = await getTranslations("nav");
   const related = pickBySlug(getProjects(locale), solution.relatedProjects);
+  const { systemGroups } = solution;
 
   return (
     <>
@@ -91,8 +93,20 @@ export default async function SolutionPage({ params }: PageProps<"/[locale]/solu
         </div>
       </Container>
 
+      {systemGroups && (
+        <Section
+          id="systems"
+          tone="alt"
+          title={t("systemsTitle", { count: systemGroups.flatMap((group) => group.items).length, groups: systemGroups.length })}
+          intro={t("systemsIntro")}
+        >
+          <SystemCatalog groups={systemGroups} pmsLabel={t("pmsLabel")} />
+          <p className="mt-10 text-sm text-muted-tint">{t("pmsNote")}</p>
+        </Section>
+      )}
+
       {related.length > 0 && (
-        <Section id="related-projects" tone="alt" title={t("relatedProjects")}>
+        <Section id="related-projects" tone={systemGroups ? "page" : "alt"} title={t("relatedProjects")}>
           <ProjectGrid projects={related} linkLabel={projects("linkLabel")} />
         </Section>
       )}

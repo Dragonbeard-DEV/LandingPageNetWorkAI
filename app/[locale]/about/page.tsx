@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { AboutAccordion } from "@/components/sections/AboutAccordion";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { FallbackNotice } from "@/components/sections/FallbackNotice";
+import { FieldworkGallery } from "@/components/sections/FieldworkGallery";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -75,6 +76,12 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
               </Reveal>
             ))}
           </dl>
+        </Section>
+      )}
+
+      {page.fieldwork && (
+        <Section id="fieldwork" tone="alt" title={t("fieldworkTitle")} intro={page.fieldwork.intro}>
+          <FieldworkGallery photos={page.fieldwork.photos} />
         </Section>
       )}
 

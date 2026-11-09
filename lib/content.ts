@@ -31,6 +31,45 @@ export const solutionSchema = z.object({
   features: z.array(z.string().min(1)).default([]),
   relatedProjects: z.array(slugSchema).default([]),
   order: z.number().int().default(100),
+  /** Optional catalogue of the systems a solution covers, grouped by domain (used by ELV systems). */
+  systemGroups: z
+    .array(
+      z.object({
+        title: z.string().min(1),
+        text: z.string().min(1),
+        items: z
+          .array(
+            z.object({
+              name: z.string().min(1),
+              text: z.string().min(1),
+              icon: z.enum(techIconNames),
+              /** The system connects to the hotel property management software. */
+              pms: z.boolean().default(false),
+            }),
+          )
+          .min(1),
+      }),
+    )
+    .optional(),
+});
+
+const titledTextSchema = z.object({ title: z.string().min(1), text: z.string().min(1) });
+
+/** The four ways clients engage NetworkAI; each has its own page with scope and process. */
+export const serviceSchema = z.object({
+  slug: slugSchema,
+  title: z.string().min(1),
+  /** One line for cards. */
+  summary: z.string().min(1),
+  /** Lead paragraph on the detail page. */
+  description: z.string().min(1),
+  icon: z.enum(techIconNames),
+  highlights: z.array(z.string().min(1)).min(2).max(5),
+  /** Optional consulting directions shown before the scope, e.g. ICT only or the full ELV package. */
+  approaches: z.array(titledTextSchema).optional(),
+  scope: z.array(titledTextSchema).min(2),
+  process: z.array(titledTextSchema).length(4),
+  order: z.number().int().default(100),
 });
 
 export const projectSchema = z.object({
@@ -101,41 +140,12 @@ export const pageSchema = z.object({
     })
     .optional(),
   capability: z.object({ quote: z.string().min(1), text: z.string().min(1) }).optional(),
-  /** The four service pillars on the home page, each with the main work it covers. */
-  services: z
-    .array(
-      z.object({
-        name: z.string().min(1),
-        description: z.string().min(1),
-        icon: z.enum(techIconNames),
-        points: z.array(z.string().min(1)).min(2).max(5),
-      }),
-    )
-    .length(4)
-    .optional(),
-  /** ELV systems grouped by domain; `pms` marks systems that connect to the hotel management software. */
-  systems: z
-    .object({
-      intro: z.string().min(1),
-      pmsNote: z.string().min(1),
-      groups: z
-        .array(
-          z.object({
-            title: z.string().min(1),
-            text: z.string().min(1),
-            items: z
-              .array(z.object({ name: z.string().min(1), icon: z.enum(techIconNames), pms: z.boolean().default(false) }))
-              .min(1),
-          }),
-        )
-        .length(4),
-    })
-    .optional(),
-  /** Photos taken on site during installation, shown as a gallery. */
+  /** Site photos for the About page gallery; the home page shows the first three. */
   fieldwork: z
     .object({
       intro: z.string().min(1),
-      photos: z.array(imageSchema.extend({ caption: z.string().min(1) })).min(3),
+      /** `title` names the work shown and `phase` the project stage; `alt` describes the picture itself. */
+      photos: z.array(imageSchema.extend({ title: z.string().min(1), phase: z.string().min(1) })).min(3),
     })
     .optional(),
   cta: z.object({ title: z.string().min(1), text: z.string().min(1) }).optional(),
@@ -145,6 +155,7 @@ export const pageSchema = z.object({
 });
 
 export const contentTypes = {
+  services: serviceSchema,
   solutions: solutionSchema,
   projects: projectSchema,
   segments: segmentSchema,
@@ -155,6 +166,7 @@ export const contentTypes = {
 
 export type ContentType = keyof typeof contentTypes;
 export type ImageRef = z.infer<typeof imageSchema>;
+export type Service = z.infer<typeof serviceSchema>;
 export type Solution = z.infer<typeof solutionSchema>;
 export type Project = z.infer<typeof projectSchema>;
 export type Segment = z.infer<typeof segmentSchema>;
@@ -238,6 +250,14 @@ const readOne = cache(<T extends ContentType>(type: T, slug: string, locale: Loc
 );
 
 // ---------- Public API ----------
+
+export function getServices(locale: Locale): Entry<Service>[] {
+  return [...readAll("services", locale)].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title, locale));
+}
+
+export function getService(locale: Locale, slug: string): Entry<Service> | null {
+  return readOne("services", slug, locale);
+}
 
 export function getSolutions(locale: Locale): Entry<Solution>[] {
   return [...readAll("solutions", locale)].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title, locale));

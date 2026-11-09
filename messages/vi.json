@@ -13,6 +13,12 @@
     "segments": "Lĩnh vực",
     "allSegments": "Tất cả lĩnh vực",
     "solutions": "Giải pháp",
+    "services": "Dịch vụ",
+    "servicesAll": "Tổng quan dịch vụ",
+    "serviceDesign": "Tư vấn thiết kế",
+    "serviceDelivery": "Thiết bị, thi công, tích hợp",
+    "serviceSupport": "Bảo trì, bảo hành",
+    "serviceSmartHome": "Design and Build Smart Home",
     "projects": "Dự án",
     "contact": "Liên hệ",
     "privacy": "Chính sách quyền riêng tư",
@@ -81,7 +87,23 @@
     "relatedProjects": "Dự án liên quan",
     "otherSolutions": "Giải pháp khác",
     "linkLabel": "Xem giải pháp",
-    "viewAll": "Xem tất cả giải pháp"
+    "viewAll": "Xem tất cả giải pháp",
+    "systemsTitle": "{count} hệ thống, {groups} nhóm",
+    "systemsIntro": "Tuỳ quy mô và công năng của công trình, NetworkAI tư vấn, thiết kế, triển khai và bảo trì từng hệ thống dưới đây.",
+    "pmsLabel": "Kết nối PMS",
+    "pmsNote": "Kết nối PMS: hệ thống liên kết với phần mềm quản lý khách sạn."
+  },
+  "services": {
+    "eyebrow": "Dịch vụ",
+    "title": "Bốn nhóm dịch vụ, một đầu mối",
+    "lead": "Từ bản vẽ đầu tiên đến vận hành hằng ngày, khách hàng làm việc với một đội ngũ duy nhất.",
+    "metaDescription": "Dịch vụ của NetworkAI: tư vấn thiết kế ICT và ELV, cung cấp thiết bị, thi công, tích hợp, bảo trì bảo hành và Design and Build Smart Home.",
+    "linkLabel": "Xem chi tiết",
+    "highlightsTitle": "Công việc chính",
+    "approachesTitle": "Hướng tư vấn",
+    "scopeTitle": "Phạm vi công việc",
+    "processTitle": "Quy trình làm việc",
+    "otherServices": "Dịch vụ khác"
   },
   "projects": {
     "eyebrow": "Dự án",
@@ -146,13 +168,13 @@
     "servicesEyebrow": "Dịch vụ",
     "servicesTitle": "Bốn nhóm dịch vụ, một đầu mối",
     "servicesIntro": "Từ bản vẽ đầu tiên đến vận hành hằng ngày, khách hàng làm việc với một đội ngũ duy nhất.",
-    "serviceButton": "Trao đổi về dịch vụ này",
     "systemsEyebrow": "Hệ thống ELV",
     "systemsTitle": "Mười sáu hệ thống, bốn nhóm",
-    "systemsPms": "Kết nối PMS",
-    "systemsLink": "Xem giải pháp hệ thống ELV",
+    "systemsIntro": "Tuỳ quy mô và công năng của công trình, NetworkAI tư vấn, thiết kế, triển khai và bảo trì các hệ thống dưới đây.",
+    "systemsLink": "Xem chi tiết 16 hệ thống",
     "fieldworkEyebrow": "Tại công trình",
     "fieldworkTitle": "Thi công thực tế",
+    "fieldworkMore": "Xem thêm hình ảnh thi công",
     "ctaButton": "Liên hệ ngay",
     "slideshow": {
       "region": "Ảnh nền",
@@ -165,7 +187,8 @@
     "eyebrow": "Công ty",
     "valuesTitle": "Giá trị của chúng tôi",
     "statsTitle": "Con số",
-    "statsNote": "Theo hồ sơ năng lực 2026 và website của công ty."
+    "statsNote": "Theo hồ sơ năng lực 2026 và website của công ty.",
+    "fieldworkTitle": "Thi công thực tế"
   },
   "partners": {
     "eyebrow": "Công ty",
@@ -188,7 +211,15 @@
     "detailsTitle": "Thông tin liên hệ",
     "email": "Email",
     "phone": "Điện thoại",
-    "address": "Địa chỉ"
+    "address": "Địa chỉ",
+    "prepare": {
+      "title": "Thông tin nên gửi kèm",
+      "intro": "Để chúng tôi đề xuất phạm vi và giải pháp phù hợp ngay từ lần trao đổi đầu tiên.",
+      "site": { "title": "Công trình", "text": "Loại hình (khách sạn, resort, toà nhà, nhà ở), vị trí và quy mô." },
+      "stage": { "title": "Giai đoạn", "text": "Ý tưởng, thiết kế, thi công hay đang vận hành." },
+      "systems": { "title": "Hệ thống quan tâm", "text": "ICT, ELV hoặc Smart Home, kèm các hệ thống cụ thể." },
+      "timeline": { "title": "Thời gian dự kiến", "text": "Mốc khởi công hoặc khai trương mong muốn." }
+    }
   },
   "form": {
     "title": "Gửi tin nhắn cho chúng tôi",

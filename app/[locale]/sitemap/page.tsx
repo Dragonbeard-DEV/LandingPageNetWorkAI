@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
-import { getJobs, getNews, getProjects, getSegments, getSolutions } from "@/lib/content";
+import { getJobs, getNews, getProjects, getSegments, getServices, getSolutions } from "@/lib/content";
 import { Link } from "@/lib/i18n/navigation";
 import { resolveLocale } from "@/lib/i18n/params";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -33,6 +33,7 @@ export default async function SitemapPage({ params }: PageProps<"/[locale]/sitem
         link("contact", "/contact"),
       ],
     },
+    { id: "services", title: nav("services"), links: [link("servicesAll", "/services"), ...getServices(locale).map((item) => ({ label: item.title, href: `/services/${item.slug}` }))] },
     { id: "solutions", title: nav("solutions"), links: [link("solutions", "/solutions"), ...getSolutions(locale).map((item) => ({ label: item.title, href: `/solutions/${item.slug}` }))] },
     { id: "segments", title: nav("segments"), links: [link("allSegments", "/segments"), ...getSegments(locale).map((item) => ({ label: item.title, href: `/segments/${item.slug}` }))] },
     { id: "projects", title: nav("projects"), links: [link("projects", "/projects"), ...getProjects(locale).map((item) => ({ label: item.title, href: `/projects/${item.slug}` }))] },

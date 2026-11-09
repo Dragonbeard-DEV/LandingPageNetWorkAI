@@ -33,6 +33,17 @@ export const siteConfig = {
     { kind: "link", key: "home", href: "/" },
     {
       kind: "group",
+      key: "services",
+      children: [
+        { key: "servicesAll", href: "/services" },
+        { key: "serviceDesign", href: "/services/design-consultancy" },
+        { key: "serviceDelivery", href: "/services/supply-installation-integration" },
+        { key: "serviceSupport", href: "/services/maintenance-support" },
+        { key: "serviceSmartHome", href: "/services/smart-home-design-build" },
+      ],
+    },
+    {
+      kind: "group",
       key: "company",
       children: [
         { key: "about", href: "/about" },
@@ -48,6 +59,7 @@ export const siteConfig = {
   ] satisfies NavItem[],
   footer: {
     main: [
+      { key: "services", href: "/services" },
       { key: "solutions", href: "/solutions" },
       { key: "segments", href: "/segments" },
       { key: "projects", href: "/projects" },

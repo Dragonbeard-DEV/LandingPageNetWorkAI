@@ -13,6 +13,12 @@
     "segments": "Segments",
     "allSegments": "All segments",
     "solutions": "Solutions",
+    "services": "Services",
+    "servicesAll": "Services overview",
+    "serviceDesign": "Design consultancy",
+    "serviceDelivery": "Supply, installation and integration",
+    "serviceSupport": "Maintenance and warranty",
+    "serviceSmartHome": "Smart Home design and build",
     "projects": "Projects",
     "contact": "Contact",
     "privacy": "Privacy policy",
@@ -81,7 +87,23 @@
     "relatedProjects": "Related projects",
     "otherSolutions": "Other solutions",
     "linkLabel": "View solution",
-    "viewAll": "View all solutions"
+    "viewAll": "View all solutions",
+    "systemsTitle": "{count} systems in {groups} groups",
+    "systemsIntro": "Depending on the scale and use of the building, NetworkAI designs, delivers and maintains each of the systems below.",
+    "pmsLabel": "PMS link",
+    "pmsNote": "PMS link: the system connects to the hotel property management software."
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Four services, one point of contact",
+    "lead": "From the first drawing to day-to-day operation, clients work with a single team.",
+    "metaDescription": "NetworkAI services: ICT and ELV design consultancy, equipment supply, installation and integration, maintenance and warranty, and Smart Home design and build.",
+    "linkLabel": "Learn more",
+    "highlightsTitle": "What it covers",
+    "approachesTitle": "Consulting directions",
+    "scopeTitle": "Scope of work",
+    "processTitle": "How we work",
+    "otherServices": "Other services"
   },
   "projects": {
     "eyebrow": "Projects",
@@ -146,13 +168,13 @@
     "servicesEyebrow": "Services",
     "servicesTitle": "Four services, one point of contact",
     "servicesIntro": "From the first drawing to day-to-day operation, clients work with a single team.",
-    "serviceButton": "Discuss this service",
     "systemsEyebrow": "ELV systems",
     "systemsTitle": "Sixteen systems in four groups",
-    "systemsPms": "PMS link",
-    "systemsLink": "See the ELV systems solution",
+    "systemsIntro": "Depending on the scale and use of the building, NetworkAI designs, delivers and maintains the systems below.",
+    "systemsLink": "See all 16 systems",
     "fieldworkEyebrow": "On site",
     "fieldworkTitle": "Our work in the field",
+    "fieldworkMore": "See more site photos",
     "ctaButton": "Get in touch",
     "slideshow": {
       "region": "Background photos",
@@ -165,7 +187,8 @@
     "eyebrow": "Company",
     "valuesTitle": "What we value",
     "statsTitle": "In numbers",
-    "statsNote": "From our 2026 company profile and website."
+    "statsNote": "From our 2026 company profile and website.",
+    "fieldworkTitle": "Our work in the field"
   },
   "partners": {
     "eyebrow": "Company",
@@ -188,7 +211,15 @@
     "detailsTitle": "Contact details",
     "email": "Email",
     "phone": "Phone",
-    "address": "Address"
+    "address": "Address",
+    "prepare": {
+      "title": "Helpful to include",
+      "intro": "So we can propose the right scope and solution from the first conversation.",
+      "site": { "title": "The building", "text": "Type (hotel, resort, tower, home), location and size." },
+      "stage": { "title": "The stage", "text": "Concept, design, construction or already in operation." },
+      "systems": { "title": "Systems of interest", "text": "ICT, ELV or Smart Home, and the specific systems." },
+      "timeline": { "title": "Timeline", "text": "Target start of works or opening date." }
+    }
   },
   "form": {
     "title": "Send us a message",
