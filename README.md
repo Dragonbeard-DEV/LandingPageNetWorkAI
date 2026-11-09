@@ -266,6 +266,18 @@ The About page uses `public/images/home/technicians-installing-rack.webp` (the t
 | `ict-system-design-illustration.webp` | Solution: ICT system design | Illustration of a server linked to network devices | Hình minh hoạ máy chủ kết nối với thiết bị mạng |
 | `ict-system-design-icon.svg` | Unused (icon version of the illustration) | Server and network icon | Biểu tượng máy chủ và mạng |
 
+### Services (`public/images/services/`)
+
+The main photo of each service page. All four are from Unsplash under the [Unsplash License](https://unsplash.com/license)
+(free for commercial use, no attribution required); the galleries below them use the company's own site photos from `public/images/field/` and `projects/`.
+
+| File | Service | Unsplash photo |
+| --- | --- | --- |
+| `design-plan-review.webp` | Design consultancy | [xYCBw1uIP_M](https://unsplash.com/photos/xYCBw1uIP_M) |
+| `installation-rack-testing.webp` | Supply, installation and integration | [A-b2nPSSK6E](https://unsplash.com/photos/A-b2nPSSK6E) |
+| `maintenance-control-cabinet.webp` | Maintenance and warranty | [5FS9ci4eHg0](https://unsplash.com/photos/5FS9ci4eHg0) |
+| `smart-home-control-display.webp` | Smart Home design and build | [nz7z0rNdvyI](https://unsplash.com/photos/nz7z0rNdvyI) |
+
 ### Projects and infrastructure photos (`public/images/projects/`)
 
 The "Planned use" column records the original sample assignment; `content/` is now the source of truth for where a photo is used.

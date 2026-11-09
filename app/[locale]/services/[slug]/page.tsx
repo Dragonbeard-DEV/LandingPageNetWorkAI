@@ -59,11 +59,14 @@ export default async function ServicePage({ params }: PageProps<"/[locale]/servi
       <FallbackNotice isFallback={service.isFallback} />
 
       <Container className="py-12 md:py-16">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-[var(--radius-card)] bg-soft-strong shadow-card">
-          <Image src={service.image.src} alt={service.image.alt} fill priority sizes="(min-width: 1216px) 1216px, 100vw" className="object-cover" />
-        </div>
-        <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem]">
-          <MdxContent source={service.body} className="text-lg" />
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem]">
+          <div>
+            <MdxContent source={service.body} className="text-lg" />
+            {/* A supporting photo under the intro, sized to the text column rather than the page. */}
+            <div className="relative mt-8 aspect-[3/2] max-w-2xl overflow-hidden rounded-[var(--radius-card)] bg-soft-strong shadow-card">
+              <Image src={service.image.src} alt={service.image.alt} fill priority sizes="(min-width: 768px) 42rem, 100vw" className="object-cover" />
+            </div>
+          </div>
           <aside aria-labelledby="service-highlights" className="h-fit rounded-[var(--radius-card)] border border-border-soft bg-card p-6 shadow-card">
             <h2 id="service-highlights" className="text-lg font-bold">
               {t("highlightsTitle")}

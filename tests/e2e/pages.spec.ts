@@ -309,7 +309,7 @@ test.describe("pages that hold the detail the home page previews", () => {
     await main.getByRole("link", { name: "Design consultancy" }).click();
     await expect(page).toHaveURL(/\/en\/services\/design-consultancy$/);
     await expect(page.locator("#approaches li")).toHaveCount(2);
-    await expect(page.getByRole("img", { name: "Network switches in a rack with neatly labelled patch cables" })).toBeVisible();
+    await expect(page.getByRole("img", { name: "Two engineers reviewing a system floor plan at a table" })).toBeVisible();
     await expect(page.getByRole("list", { name: "Site photos" }).locator("img")).toHaveCount(3);
     await expect(page.locator("#scope > div > ul:not([aria-label]) > li")).toHaveCount(4);
     await expect(page.locator("#process li")).toHaveCount(4);
@@ -318,7 +318,7 @@ test.describe("pages that hold the detail the home page previews", () => {
 
   test("ELV solution lists all sixteen systems with descriptions", async ({ page }) => {
     await page.goto("/vi/solutions/elv-systems");
-    await expect(page.locator("#systems h2")).toHaveText("16 hệ thống, 4 nhóm");
+    await expect(page.locator("#systems h2")).toHaveText("4 nhóm hệ thống, 16 hạng mục");
     await expect(page.locator("#systems li")).toHaveCount(16);
     await expect(page.locator("#systems").getByText("Kết nối PMS", { exact: true })).toHaveCount(3);
   });
