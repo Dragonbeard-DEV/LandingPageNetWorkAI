@@ -100,11 +100,43 @@ export const pageSchema = z.object({
       slides: z.array(imageSchema).default([]),
     })
     .optional(),
-  intro: z.object({ title: z.string().min(1), chips: z.array(z.string().min(1)).min(6).max(9) }).optional(),
   capability: z.object({ quote: z.string().min(1), text: z.string().min(1) }).optional(),
-  packages: z
-    .array(z.object({ name: z.string().min(1), description: z.string().min(1), icon: z.enum(techIconNames) }))
-    .length(3)
+  /** The four service pillars on the home page, each with the main work it covers. */
+  services: z
+    .array(
+      z.object({
+        name: z.string().min(1),
+        description: z.string().min(1),
+        icon: z.enum(techIconNames),
+        points: z.array(z.string().min(1)).min(2).max(5),
+      }),
+    )
+    .length(4)
+    .optional(),
+  /** ELV systems grouped by domain; `pms` marks systems that connect to the hotel management software. */
+  systems: z
+    .object({
+      intro: z.string().min(1),
+      pmsNote: z.string().min(1),
+      groups: z
+        .array(
+          z.object({
+            title: z.string().min(1),
+            text: z.string().min(1),
+            items: z
+              .array(z.object({ name: z.string().min(1), icon: z.enum(techIconNames), pms: z.boolean().default(false) }))
+              .min(1),
+          }),
+        )
+        .length(4),
+    })
+    .optional(),
+  /** Photos taken on site during installation, shown as a gallery. */
+  fieldwork: z
+    .object({
+      intro: z.string().min(1),
+      photos: z.array(imageSchema.extend({ caption: z.string().min(1) })).min(3),
+    })
     .optional(),
   cta: z.object({ title: z.string().min(1), text: z.string().min(1) }).optional(),
   values: z.array(z.object({ title: z.string().min(1), text: z.string().min(1) })).optional(),

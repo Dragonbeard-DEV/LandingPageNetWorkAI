@@ -12,6 +12,23 @@ export const techIconNames = [
   "compliance",
   "design-build",
   "smart-home",
+  // ELV systems on the home page
+  "server-room",
+  "fiber",
+  "storage",
+  "data-security",
+  "lan",
+  "wifi",
+  "hsia",
+  "pbx",
+  "tv",
+  "signage",
+  "av",
+  "intercom",
+  "cctv",
+  "access-control",
+  "public-address",
+  "parking",
 ] as const;
 
 export type TechIconName = (typeof techIconNames)[number];

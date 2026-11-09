@@ -14,12 +14,15 @@ test.describe("home page", () => {
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await expect(page.getByRole("heading", { level: 1 })).toContainText("ICT, ELV & Smart Building");
 
-    // Blocks in the order required by the brief.
+    // Blocks in the order a visitor reads them: promise, proof, offer, reach, projects, fieldwork, why us, CTA.
     const ids = await page.locator("main > section, main > div > section").evaluateAll((nodes) => nodes.map((node) => node.id || node.getAttribute("aria-labelledby")));
-    expect(ids).toEqual(["hero-title", "intro", "solutions", "capability", "featured-projects", "packages", "cta-band-title"]);
-    await expect(page.locator("#solutions li")).toHaveCount(6);
+    expect(ids).toEqual(["hero-title", "clients-label", "services", "systems", "featured-projects", "fieldwork", "capability", "cta-band-title"]);
+    await expect(page.locator('section[aria-labelledby="clients-label"] img')).toHaveCount(8);
+    await expect(page.locator("#services li.reveal")).toHaveCount(4);
+    await expect(page.locator("#systems li.reveal")).toHaveCount(4);
+    await expect(page.locator("#systems li.reveal li")).toHaveCount(16);
     await expect(page.locator("#featured-projects li")).toHaveCount(3);
-    await expect(page.locator("#packages li")).toHaveCount(3);
+    await expect(page.locator("#fieldwork figure")).toHaveCount(6);
     await expect(page.getByRole("contentinfo")).toBeVisible();
     await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
   });
@@ -56,7 +59,7 @@ test.describe("home scroll motion", () => {
 
   test("slides blocks in only when they scroll into view", async ({ page }) => {
     await page.goto("/en");
-    const secondCard = page.locator("#solutions li").nth(1);
+    const secondCard = page.locator("#services li.reveal").nth(1);
     await expect(secondCard).toHaveCSS("opacity", "0");
     await expect(secondCard).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 40)");
     await expect(secondCard).toHaveCSS("transition-delay", "0.15s");
@@ -66,33 +69,32 @@ test.describe("home scroll motion", () => {
     await expect(secondCard).toHaveCSS("transform", "none");
   });
 
-  test("slides a muted grey logo in behind the intro chips", async ({ page }) => {
+  test("slides a muted grey logo in behind the capability statement", async ({ page }) => {
     await page.goto("/vi");
-    const backdrop = page.locator("#intro .reveal-from-right");
+    const backdrop = page.locator("#capability .reveal-from-right");
     const logo = backdrop.locator('img[src*="networkai-logo-icon"]');
     await expect(logo).toHaveAttribute("alt", "");
     await expect(logo).toHaveCSS("filter", "grayscale(1)");
     await expect(logo).toHaveCSS("opacity", "0.1");
     await expect(backdrop).toHaveCSS("transform", "matrix(1, 0, 0, 1, 80, 0)");
 
-    await page.locator("#intro").getByText("KNX", { exact: true }).scrollIntoViewIfNeeded();
+    await page.locator("#capability blockquote").scrollIntoViewIfNeeded();
     await expect(backdrop).toHaveCSS("opacity", "1");
-    await expect(page.locator("#intro").getByText("KNX", { exact: true })).toBeVisible();
-    await expect(page.locator("#capability img")).toHaveCount(0);
+    await expect(page.locator("#capability blockquote")).toBeVisible();
   });
 
   test("shows everything at once with reduced motion", async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/en");
-    await expect(page.locator("#intro .reveal-from-right")).toHaveCSS("opacity", "1");
-    await expect(page.locator("#solutions li").first()).toHaveCSS("opacity", "1");
+    await expect(page.locator("#capability .reveal-from-right")).toHaveCSS("opacity", "1");
+    await expect(page.locator("#services li.reveal").first()).toHaveCSS("opacity", "1");
   });
 
   for (const width of [375, 1280]) {
     test(`has no horizontal scroll while blocks slide in at ${width}px`, async ({ page }) => {
       await page.setViewportSize({ width, height: 800 });
       await page.goto("/en");
-      for (const id of ["intro", "capability", "packages"]) {
+      for (const id of ["services", "systems", "fieldwork", "capability"]) {
         await page.locator(`#${id}`).scrollIntoViewIfNeeded();
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
         expect(overflow, `overflow at #${id}`).toBe(0);
