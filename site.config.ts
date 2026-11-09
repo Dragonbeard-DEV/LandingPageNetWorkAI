@@ -13,24 +13,22 @@ export type NavItem =
 
 export const siteConfig = {
   name: "NetworkAI",
-  legalName: "[Company legal name]",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com",
+  legalName: "NetworkAI Technology Co., Ltd",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.networkai.vn",
   logo: {
     full: "/images/brand/networkai-logo-full.png",
+    header: "/images/brand/networkai-logo-header.png",
+    headerOnDark: "/images/brand/networkai-logo-header-on-dark.png",
     icon: "/images/brand/networkai-logo-icon.png",
     wordmark: "/images/brand/networkai-logo-wordmark.png",
   },
   contact: {
     email: "sales@networkai.vn",
-    // Placeholder values: replace with the real office address and phone number.
-    phone: "+84 (0)00 000 0000",
-    address: "[Street address], [District], [City], Vietnam",
+    phone: "+84 236 730 8188",
+    address: "Floor 3, Kim Son Building, 18 Phan Thanh Tai, Hai Chau District, Da Nang City, Vietnam",
   },
-  social: [
-    { key: "linkedin", href: "https://www.linkedin.com/" },
-    { key: "facebook", href: "https://www.facebook.com/" },
-    { key: "youtube", href: "https://www.youtube.com/" },
-  ],
+  // No company profiles confirmed yet; add { key, href } entries and the footer column appears.
+  social: [] as readonly { key: "linkedin" | "facebook" | "youtube"; href: string }[],
   nav: [
     { kind: "link", key: "home", href: "/" },
     {

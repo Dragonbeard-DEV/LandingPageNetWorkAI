@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
+import { TechIconTile } from "@/components/ui/TechIcon";
 import { getFeaturedProjects, getPage, getSolutions } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/params";
 import { organizationJsonLd, serializeJsonLd } from "@/lib/seo/jsonld";
@@ -43,20 +44,33 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const projectsT = await getTranslations("projects");
 
   return (
-    <>
+    <div className="home-motion">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(organizationJsonLd(page.description)) }} />
       <Hero
         titleLine1={page.hero.titleLine1}
         titleLine2={page.hero.titleLine2}
         lead={page.hero.lead}
-        image={page.hero.image}
+        images={[page.hero.image, ...page.hero.slides]}
+        slideshowLabels={{
+          region: t("slideshow.region"),
+          pause: t("slideshow.pause"),
+          play: t("slideshow.play"),
+          goToSlide: t("slideshow.goToSlide", { number: "{number}" }),
+        }}
         primary={{ label: t("heroPrimary"), href: "/contact" }}
         secondary={{ label: t("heroSecondary"), href: "/solutions" }}
       />
 
-      <Section id="intro" tone="card" eyebrow={t("introEyebrow")} title={page.intro.title}>
+      <Section id="intro" tone="card" eyebrow={t("introEyebrow")} title={page.intro.title} className="relative isolate overflow-hidden">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-16 -bottom-16 -z-10 w-64 md:-right-20 md:-bottom-20 md:w-[30rem]">
+          <Reveal className="reveal-from-right">
+            <Image src={siteConfig.logo.icon} alt="" width={1280} height={1132} sizes="(min-width: 768px) 30rem, 16rem" className="h-auto w-full opacity-10 grayscale" />
+          </Reveal>
+        </div>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-          <MdxContent source={page.body} className="text-lg" />
+          <Reveal>
+            <MdxContent source={page.body} className="text-lg" />
+          </Reveal>
           <Reveal>
             <ul className="flex flex-wrap content-start gap-3">
               {page.intro.chips.map((chip) => (
@@ -71,6 +85,11 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
 
       <Section id="solutions" eyebrow={t("solutionsEyebrow")} title={t("solutionsTitle")}>
         <SolutionGrid solutions={getSolutions(locale).slice(0, 6)} linkLabel={solutionsT("linkLabel")} />
+        <div className="mt-10">
+          <Button href="/solutions" variant="secondary">
+            {solutionsT("viewAll")}
+          </Button>
+        </div>
       </Section>
 
       <Section id="capability" tone="alt">
@@ -101,14 +120,13 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <ul className="grid gap-6 md:grid-cols-3">
           {page.packages.map((pkg) => (
             <Reveal as="li" key={pkg.name} className="flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-border-soft bg-card shadow-card">
-              <div className="relative aspect-[16/10] bg-soft-strong">
-                <Image src={pkg.image.src} alt={pkg.image.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
-              </div>
               <div className="flex flex-1 flex-col gap-3 p-6">
+                <TechIconTile name={pkg.icon} className="mb-2" />
                 <h3 className="text-xl font-bold">{pkg.name}</h3>
                 <p className="text-muted">{pkg.description}</p>
                 <Button href="/contact" variant="secondary" className="mt-auto self-start">
-                  {t("packageButton", { name: pkg.name })}
+                  {t("packageButton")}
+                  <span className="sr-only">: {pkg.name}</span>
                 </Button>
               </div>
             </Reveal>
@@ -117,6 +135,6 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       </Section>
 
       <CtaBand title={page.cta.title} text={page.cta.text} buttonLabel={t("ctaButton")} />
-    </>
+    </div>
   );
 }

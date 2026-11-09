@@ -1,182 +1,322 @@
 [
   {
     "name": "Accor",
+    "group": "client",
     "logo": "/images/partners/accor.png",
     "url": "https://group.accor.com/",
     "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
-    }
-  },
-  {
-    "name": "Alcatel-Lucent Enterprise",
-    "logo": "/images/partners/alcatel-lucent-enterprise.webp",
-    "url": "https://www.al-enterprise.com/",
-    "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
+      "en": "International hotel group whose properties we have served.",
+      "vi": "Tập đoàn khách sạn quốc tế có các công trình chúng tôi đã phục vụ."
     }
   },
   {
     "name": "Aman",
+    "group": "client",
     "logo": "/images/partners/aman-resorts.svg",
     "url": "https://www.aman.com/",
     "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
-    }
-  },
-  {
-    "name": "Cisco Meraki",
-    "logo": "/images/partners/cisco-meraki.svg",
-    "url": "https://meraki.cisco.com/",
-    "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
-    }
-  },
-  {
-    "name": "CommScope",
-    "logo": "/images/partners/commscope.svg",
-    "url": "https://www.commscope.com/",
-    "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
-    }
-  },
-  {
-    "name": "Dell Technologies",
-    "logo": "/images/partners/dell-technologies.svg",
-    "url": "https://www.dell.com/",
-    "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
+      "en": "International hotel group whose properties we have served.",
+      "vi": "Tập đoàn khách sạn quốc tế có các công trình chúng tôi đã phục vụ."
     }
   },
   {
     "name": "Hilton",
+    "group": "client",
     "logo": "/images/partners/hilton-hotels-resorts.svg",
     "url": "https://www.hilton.com/",
     "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
-    }
-  },
-  {
-    "name": "HPE Aruba Networking",
-    "logo": "/images/partners/hpe-aruba-networking.svg",
-    "url": "https://www.arubanetworks.com/",
-    "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
+      "en": "International hotel group whose properties we have served.",
+      "vi": "Tập đoàn khách sạn quốc tế có các công trình chúng tôi đã phục vụ."
     }
   },
   {
     "name": "Hyatt",
+    "group": "client",
     "logo": "/images/partners/hyatt.svg",
     "url": "https://www.hyatt.com/",
     "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
+      "en": "International hotel group whose properties we have served.",
+      "vi": "Tập đoàn khách sạn quốc tế có các công trình chúng tôi đã phục vụ."
     }
   },
   {
     "name": "IHG Hotels & Resorts",
+    "group": "client",
     "logo": "/images/partners/ihg-hotels-resorts.svg",
     "url": "https://www.ihg.com/",
     "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
-    }
-  },
-  {
-    "name": "LG",
-    "logo": "/images/partners/lg.svg",
-    "url": "https://www.lg.com/",
-    "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
+      "en": "International hotel group whose properties we have served.",
+      "vi": "Tập đoàn khách sạn quốc tế có các công trình chúng tôi đã phục vụ."
     }
   },
   {
     "name": "Marriott International",
+    "group": "client",
     "logo": "/images/partners/marriott-international.svg",
     "url": "https://www.marriott.com/",
     "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
-    }
-  },
-  {
-    "name": "Microsoft",
-    "logo": "/images/partners/microsoft.svg",
-    "url": "https://www.microsoft.com/",
-    "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
-    }
-  },
-  {
-    "name": "Nutanix",
-    "logo": "/images/partners/nutanix.webp",
-    "url": "https://www.nutanix.com/",
-    "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
+      "en": "International hotel group whose properties we have served.",
+      "vi": "Tập đoàn khách sạn quốc tế có các công trình chúng tôi đã phục vụ."
     }
   },
   {
     "name": "Radisson Hotel Group",
+    "group": "client",
     "logo": "/images/partners/radisson-hotel-group.webp",
     "url": "https://www.radissonhotels.com/",
     "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
-    }
-  },
-  {
-    "name": "Ruckus Networks",
-    "logo": "/images/partners/ruckus-networks.svg",
-    "url": "https://www.ruckusnetworks.com/",
-    "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
-    }
-  },
-  {
-    "name": "Samsung",
-    "logo": "/images/partners/samsung.png",
-    "url": "https://www.samsung.com/",
-    "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
+      "en": "International hotel group whose properties we have served.",
+      "vi": "Tập đoàn khách sạn quốc tế có các công trình chúng tôi đã phục vụ."
     }
   },
   {
     "name": "Wyndham Hotels & Resorts",
-    "logo": "/images/partners/wyndham-hotels-resorts.webp",
+    "group": "client",
+    "logo": "/images/partners/wyndham-hotels-resorts-group.png",
     "url": "https://www.wyndhamhotels.com/",
     "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
+      "en": "International hotel group whose properties we have served.",
+      "vi": "Tập đoàn khách sạn quốc tế có các công trình chúng tôi đã phục vụ."
     }
   },
   {
-    "name": "XPossible",
-    "logo": "/images/partners/xpossible.webp",
-    "url": "https://example.com/",
+    "name": "Cisco",
+    "group": "partner",
+    "logo": "/images/partners/cisco.png",
+    "url": "https://www.cisco.com/",
     "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
+      "en": "Networking and security.",
+      "vi": "Mạng và bảo mật."
+    }
+  },
+  {
+    "name": "Cisco Meraki",
+    "group": "partner",
+    "logo": "/images/partners/cisco-meraki.svg",
+    "url": "https://meraki.cisco.com/",
+    "description": {
+      "en": "Cloud-managed networking.",
+      "vi": "Mạng quản lý trên đám mây."
+    }
+  },
+  {
+    "name": "HPE Aruba Networking",
+    "group": "partner",
+    "logo": "/images/partners/hpe-aruba-networking.svg",
+    "url": "https://www.arubanetworks.com/",
+    "description": {
+      "en": "Enterprise Wi-Fi and switching.",
+      "vi": "Wi-Fi và chuyển mạch doanh nghiệp."
+    }
+  },
+  {
+    "name": "Ruckus Networks",
+    "group": "partner",
+    "logo": "/images/partners/ruckus-networks.svg",
+    "url": "https://www.ruckusnetworks.com/",
+    "description": {
+      "en": "Wi-Fi and switching for hospitality.",
+      "vi": "Wi-Fi và chuyển mạch cho khách sạn."
+    }
+  },
+  {
+    "name": "Fortinet",
+    "group": "partner",
+    "logo": "/images/partners/fortinet.png",
+    "url": "https://www.fortinet.com/",
+    "description": {
+      "en": "Network security and firewalls.",
+      "vi": "Bảo mật mạng và tường lửa."
+    }
+  },
+  {
+    "name": "Alcatel-Lucent Enterprise",
+    "group": "partner",
+    "logo": "/images/partners/alcatel-lucent-enterprise.webp",
+    "url": "https://www.al-enterprise.com/",
+    "description": {
+      "en": "Enterprise networking and communications.",
+      "vi": "Mạng và truyền thông doanh nghiệp."
+    }
+  },
+  {
+    "name": "Hewlett Packard Enterprise",
+    "group": "partner",
+    "logo": "/images/partners/hewlett-packard-enterprise.png",
+    "url": "https://www.hpe.com/",
+    "description": {
+      "en": "Servers and enterprise infrastructure.",
+      "vi": "Máy chủ và hạ tầng doanh nghiệp."
+    }
+  },
+  {
+    "name": "Dell Technologies",
+    "group": "partner",
+    "logo": "/images/partners/dell-technologies.svg",
+    "url": "https://www.dell.com/",
+    "description": {
+      "en": "Servers, storage and workstations.",
+      "vi": "Máy chủ, lưu trữ và máy trạm."
+    }
+  },
+  {
+    "name": "IBM",
+    "group": "partner",
+    "logo": "/images/partners/ibm.png",
+    "url": "https://www.ibm.com/",
+    "description": {
+      "en": "Enterprise servers and software.",
+      "vi": "Máy chủ và phần mềm doanh nghiệp."
+    }
+  },
+  {
+    "name": "VMware",
+    "group": "partner",
+    "logo": "/images/partners/vmware.png",
+    "url": "https://www.vmware.com/",
+    "description": {
+      "en": "Server virtualization.",
+      "vi": "Ảo hoá máy chủ."
+    }
+  },
+  {
+    "name": "Microsoft",
+    "group": "partner",
+    "logo": "/images/partners/microsoft.svg",
+    "url": "https://www.microsoft.com/",
+    "description": {
+      "en": "Operating systems and business software.",
+      "vi": "Hệ điều hành và phần mềm doanh nghiệp."
+    }
+  },
+  {
+    "name": "Synology",
+    "group": "partner",
+    "logo": "/images/partners/synology.png",
+    "url": "https://www.synology.com/",
+    "description": {
+      "en": "Network storage and backup.",
+      "vi": "Lưu trữ mạng và sao lưu."
+    }
+  },
+  {
+    "name": "QSAN",
+    "group": "partner",
+    "logo": "/images/partners/qsan.png",
+    "url": "https://www.qsan.com/",
+    "description": {
+      "en": "Enterprise data storage.",
+      "vi": "Lưu trữ dữ liệu doanh nghiệp."
+    }
+  },
+  {
+    "name": "Acer",
+    "group": "partner",
+    "logo": "/images/partners/acer.png",
+    "url": "https://www.acer.com/",
+    "description": {
+      "en": "Computers and office equipment.",
+      "vi": "Máy tính và thiết bị văn phòng."
+    }
+  },
+  {
+    "name": "CommScope",
+    "group": "partner",
+    "logo": "/images/partners/commscope.svg",
+    "url": "https://www.commscope.com/",
+    "description": {
+      "en": "Structured cabling and connectivity.",
+      "vi": "Cáp có cấu trúc và kết nối."
+    }
+  },
+  {
+    "name": "Panduit",
+    "group": "partner",
+    "logo": "/images/partners/panduit.png",
+    "url": "https://www.panduit.com/",
+    "description": {
+      "en": "Structured cabling and physical infrastructure.",
+      "vi": "Cáp có cấu trúc và hạ tầng vật lý."
+    }
+  },
+  {
+    "name": "Tyco",
+    "group": "partner",
+    "logo": "/images/partners/tyco.png",
+    "url": "https://www.tyco.com/",
+    "description": {
+      "en": "Security and building systems.",
+      "vi": "Hệ thống an ninh và toà nhà."
+    }
+  },
+  {
+    "name": "Polycom",
+    "group": "partner",
+    "logo": "/images/partners/polycom.png",
+    "url": "https://www.hp.com/",
+    "description": {
+      "en": "Voice and video conferencing.",
+      "vi": "Hội nghị thoại và truyền hình."
+    }
+  },
+  {
+    "name": "Samsung",
+    "group": "partner",
+    "logo": "/images/partners/samsung.png",
+    "url": "https://www.samsung.com/",
+    "description": {
+      "en": "Displays and hospitality TV.",
+      "vi": "Màn hình và TV khách sạn."
+    }
+  },
+  {
+    "name": "LG",
+    "group": "partner",
+    "logo": "/images/partners/lg.svg",
+    "url": "https://www.lg.com/",
+    "description": {
+      "en": "Displays and hospitality TV.",
+      "vi": "Màn hình và TV khách sạn."
+    }
+  },
+  {
+    "name": "Sony",
+    "group": "partner",
+    "logo": "/images/partners/sony.png",
+    "url": "https://www.sony.com/",
+    "description": {
+      "en": "Displays and audio-visual equipment.",
+      "vi": "Màn hình và thiết bị nghe nhìn."
     }
   },
   {
     "name": "Zafiro",
+    "group": "partner",
     "logo": "/images/partners/zafiro.webp",
-    "url": "https://example.com/",
+    "url": "https://www.zafiro.tv/",
     "description": {
-      "en": "[Partner description]",
-      "vi": "[Mô tả đối tác]"
+      "en": "Interactive IPTV for hotels.",
+      "vi": "IPTV tương tác cho khách sạn."
+    }
+  },
+  {
+    "name": "XPossible",
+    "group": "partner",
+    "logo": "/images/partners/xpossible.webp",
+    "url": "https://www.xpossible.com/",
+    "description": {
+      "en": "HSIA gateway for guest internet.",
+      "vi": "Gateway HSIA cho internet của khách."
+    }
+  },
+  {
+    "name": "mcoms",
+    "group": "partner",
+    "logo": "/images/partners/mcoms.png",
+    "url": "https://mcoms.com/",
+    "description": {
+      "en": "Hospitality technology solutions.",
+      "vi": "Giải pháp công nghệ khách sạn."
     }
   }
 ]

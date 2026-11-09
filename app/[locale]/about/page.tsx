@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import { AboutAccordion } from "@/components/sections/AboutAccordion";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { FallbackNotice } from "@/components/sections/FallbackNotice";
-import { MdxContent } from "@/components/sections/MdxContent";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
-import { getPage } from "@/lib/content";
+import { getPage, splitMdxSections } from "@/lib/content";
 import { resolveLocale } from "@/lib/i18n/params";
 import { buildMetadata } from "@/lib/seo/metadata";
 
@@ -44,11 +44,11 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
       <Container className="py-12 md:py-16">
         <div className="grid items-start gap-12 lg:grid-cols-2">
           {page.hero && (
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] bg-soft-strong shadow-card">
+            <div className="relative aspect-[1179/946] overflow-hidden rounded-[var(--radius-card)] bg-soft-strong shadow-card">
               <Image src={page.hero.image.src} alt={page.hero.image.alt} fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           )}
-          <MdxContent source={page.body} />
+          <AboutAccordion sections={splitMdxSections(page.body)} />
         </div>
       </Container>
 
@@ -75,24 +75,6 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
               </Reveal>
             ))}
           </dl>
-        </Section>
-      )}
-
-      {page.team && (
-        <Section id="team" tone="alt" title={t("teamTitle")}>
-          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {page.team.map((member) => (
-              <Reveal as="li" key={member.name} className="overflow-hidden rounded-[var(--radius-card)] border border-border-soft bg-card shadow-card">
-                <div className="relative aspect-square bg-soft-strong">
-                  <Image src={member.image.src} alt={member.image.alt} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
-                </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-bold">{member.name}</h3>
-                  <p className="text-muted">{member.role}</p>
-                </div>
-              </Reveal>
-            ))}
-          </ul>
         </Section>
       )}
 

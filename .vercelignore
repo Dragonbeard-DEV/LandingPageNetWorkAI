@@ -1,0 +1,6 @@
+# Used without a license; must not be served from a public deployment. See README.
+public/images/about/knx-lighting-control-panel.webp
+
+test-results
+playwright-report
+*.tsbuildinfo

@@ -17,7 +17,7 @@ export function SolutionGrid({ solutions, linkLabel, headingLevel = "h3" }: Prop
             href={`/solutions/${solution.slug}`}
             title={solution.title}
             description={solution.tagline}
-            image={solution.image}
+            icon={solution.icon}
             linkLabel={linkLabel}
             headingLevel={headingLevel}
           />
