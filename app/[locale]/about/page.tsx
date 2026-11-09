@@ -45,8 +45,9 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
       <Container className="py-12 md:py-16">
         <div className="grid items-start gap-12 lg:grid-cols-2">
           {page.hero && (
-            <div className="relative aspect-[1179/946] overflow-hidden rounded-[var(--radius-card)] bg-soft-strong shadow-card">
-              <Image src={page.hero.image.src} alt={page.hero.image.alt} fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] bg-soft-strong shadow-card">
+              {/* The team photo has the people on its right side; keep them in frame. */}
+              <Image src={page.hero.image.src} alt={page.hero.image.alt} fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-right" />
             </div>
           )}
           <AboutAccordion sections={splitMdxSections(page.body)} />

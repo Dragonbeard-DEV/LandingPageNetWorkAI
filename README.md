@@ -257,7 +257,7 @@ The glass tower is the cover photo of the 2026 company profile; its original lic
 
 The About page photo `public/images/about/knx-lighting-control-panel.webp` comes from a
 [LinkedIn post by Mouhamad Kassem EL-Mourad](https://www.linkedin.com/posts/mouhamad-kassem-el-mourad-a2a60a26a_a-knx-lighting-control-system-panel-is-essentially-activity-7456559491950702592-NJvS), used at the owner's request (2026-11-04). No license is stated, so get permission or replace it before going live.
-Until then the About page uses `public/images/projects/control-cabinet-wiring.webp`, and `.vercelignore` keeps the KNX file out of deployments. To restore it, point `hero.image` in `content/pages/about/{en,vi}.mdx` back at the file, remove it from `.vercelignore` and update the About test in `tests/e2e/pages.spec.ts`.
+The About page uses `public/images/home/technicians-installing-rack.webp` (the team on site), and `.vercelignore` keeps the KNX file out of deployments. To use it instead, point `hero.image` in `content/pages/about/{en,vi}.mdx` at the file, remove it from `.vercelignore` and update the About test in `tests/e2e/pages.spec.ts`.
 
 ### Solutions (`public/images/solutions/`)
 

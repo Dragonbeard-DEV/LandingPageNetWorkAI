@@ -95,15 +95,16 @@
   },
   "services": {
     "eyebrow": "Dịch vụ",
-    "title": "Bốn nhóm dịch vụ, một đầu mối",
-    "lead": "Từ bản vẽ đầu tiên đến vận hành hằng ngày, khách hàng làm việc với một đội ngũ duy nhất.",
+    "title": "Đồng hành trọn gói, từ bản vẽ đến vận hành",
+    "lead": "Từ tư vấn thiết kế, thi công lắp đặt đến bảo trì sau bàn giao, bạn chỉ cần làm việc với một đội ngũ duy nhất.",
     "metaDescription": "Dịch vụ của NetworkAI: tư vấn thiết kế ICT và ELV, cung cấp thiết bị, thi công, tích hợp, bảo trì bảo hành và Design and Build Smart Home.",
     "linkLabel": "Xem chi tiết",
     "highlightsTitle": "Công việc chính",
     "approachesTitle": "Hướng tư vấn",
     "scopeTitle": "Phạm vi công việc",
     "processTitle": "Quy trình làm việc",
-    "otherServices": "Dịch vụ khác"
+    "otherServices": "Dịch vụ khác",
+    "galleryLabel": "Hình ảnh thực tế"
   },
   "projects": {
     "eyebrow": "Dự án",
@@ -166,10 +167,10 @@
     "projectsEyebrow": "Dự án tiêu biểu",
     "projectsTitle": "Được các thương hiệu khách sạn hàng đầu tin tưởng",
     "servicesEyebrow": "Dịch vụ",
-    "servicesTitle": "Bốn nhóm dịch vụ, một đầu mối",
-    "servicesIntro": "Từ bản vẽ đầu tiên đến vận hành hằng ngày, khách hàng làm việc với một đội ngũ duy nhất.",
+    "servicesTitle": "Đồng hành trọn gói, từ bản vẽ đến vận hành",
+    "servicesIntro": "Từ tư vấn thiết kế, thi công lắp đặt đến bảo trì sau bàn giao, bạn chỉ cần làm việc với một đội ngũ duy nhất.",
     "systemsEyebrow": "Hệ thống ELV",
-    "systemsTitle": "Mười sáu hệ thống, bốn nhóm",
+    "systemsTitle": "Đầy đủ 16 hệ thống điện nhẹ cho công trình",
     "systemsIntro": "Tuỳ quy mô và công năng của công trình, NetworkAI tư vấn, thiết kế, triển khai và bảo trì các hệ thống dưới đây.",
     "systemsLink": "Xem chi tiết 16 hệ thống",
     "fieldworkEyebrow": "Tại công trình",

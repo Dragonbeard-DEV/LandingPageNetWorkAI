@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/services
   const { slug } = await params;
   const service = getService(locale, slug);
   if (!service) return {};
-  return buildMetadata({ locale, path: `/services/${slug}`, title: service.title, description: service.description });
+  return buildMetadata({ locale, path: `/services/${slug}`, title: service.title, description: service.description, image: service.image });
 }
 
 export default async function ServicePage({ params }: PageProps<"/[locale]/services/[slug]">) {
@@ -57,26 +58,31 @@ export default async function ServicePage({ params }: PageProps<"/[locale]/servi
       />
       <FallbackNotice isFallback={service.isFallback} />
 
-      <Container className="grid gap-12 py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_22rem]">
-        <MdxContent source={service.body} className="text-lg" />
-        <aside aria-labelledby="service-highlights" className="h-fit rounded-[var(--radius-card)] border border-border-soft bg-card p-6 shadow-card">
-          <h2 id="service-highlights" className="text-lg font-bold">
-            {t("highlightsTitle")}
-          </h2>
-          <ul className="mt-4 space-y-3">
-            {service.highlights.map((point) => (
-              <li key={point} className="flex gap-3">
-                <svg aria-hidden="true" viewBox="0 0 20 20" className="mt-1 size-4 shrink-0 text-brand-500">
-                  <path fill="currentColor" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" />
-                </svg>
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-          <Button href="/contact" className="mt-6 w-full">
-            {common("cta.button")}
-          </Button>
-        </aside>
+      <Container className="py-12 md:py-16">
+        <div className="relative aspect-[16/9] overflow-hidden rounded-[var(--radius-card)] bg-soft-strong shadow-card">
+          <Image src={service.image.src} alt={service.image.alt} fill priority sizes="(min-width: 1216px) 1216px, 100vw" className="object-cover" />
+        </div>
+        <div className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem]">
+          <MdxContent source={service.body} className="text-lg" />
+          <aside aria-labelledby="service-highlights" className="h-fit rounded-[var(--radius-card)] border border-border-soft bg-card p-6 shadow-card">
+            <h2 id="service-highlights" className="text-lg font-bold">
+              {t("highlightsTitle")}
+            </h2>
+            <ul className="mt-4 space-y-3">
+              {service.highlights.map((point) => (
+                <li key={point} className="flex gap-3">
+                  <svg aria-hidden="true" viewBox="0 0 20 20" className="mt-1 size-4 shrink-0 text-brand-500">
+                    <path fill="currentColor" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" />
+                  </svg>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <Button href="/contact" className="mt-6 w-full">
+              {common("cta.button")}
+            </Button>
+          </aside>
+        </div>
       </Container>
 
       {hasApproaches && (
@@ -101,6 +107,15 @@ export default async function ServicePage({ params }: PageProps<"/[locale]/servi
             </Reveal>
           ))}
         </ul>
+        {service.gallery.length > 0 && (
+          <ul aria-label={t("galleryLabel")} className="mt-10 grid gap-5 sm:grid-cols-3">
+            {service.gallery.map((photo) => (
+              <Reveal as="li" key={photo.src} className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] bg-soft-strong shadow-card">
+                <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 640px) 33vw, 100vw" className="object-cover" />
+              </Reveal>
+            ))}
+          </ul>
+        )}
       </Section>
 
       <Section id="process" tone={processTone} title={t("processTitle")}>

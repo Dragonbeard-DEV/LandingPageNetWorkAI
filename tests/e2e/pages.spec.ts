@@ -234,7 +234,7 @@ test.describe("about page", () => {
       await page.goto(`/${locale}/about`);
       const main = page.getByRole("main");
       await expect(main.locator("details")).toHaveCount(2);
-      await expect(main.locator('img[src*="control-cabinet-wiring"]')).toBeVisible();
+      await expect(main.locator('img[src*="technicians-installing-rack"]')).toBeVisible();
       await expect(main.getByText(firstText)).toBeVisible();
       await expect(main.getByText(secondText)).toBeHidden();
 
@@ -309,7 +309,9 @@ test.describe("pages that hold the detail the home page previews", () => {
     await main.getByRole("link", { name: "Design consultancy" }).click();
     await expect(page).toHaveURL(/\/en\/services\/design-consultancy$/);
     await expect(page.locator("#approaches li")).toHaveCount(2);
-    await expect(page.locator("#scope li")).toHaveCount(4);
+    await expect(page.getByRole("img", { name: "Network switches in a rack with neatly labelled patch cables" })).toBeVisible();
+    await expect(page.getByRole("list", { name: "Site photos" }).locator("img")).toHaveCount(3);
+    await expect(page.locator("#scope > div > ul:not([aria-label]) > li")).toHaveCount(4);
     await expect(page.locator("#process li")).toHaveCount(4);
     await expect(page.locator("#other-services li")).toHaveCount(3);
   });

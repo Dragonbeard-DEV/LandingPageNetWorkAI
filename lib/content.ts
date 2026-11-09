@@ -64,6 +64,10 @@ export const serviceSchema = z.object({
   /** Lead paragraph on the detail page. */
   description: z.string().min(1),
   icon: z.enum(techIconNames),
+  /** Photo under the page header; cards keep the icon. */
+  image: imageSchema,
+  /** A few more site photos shown after the scope. */
+  gallery: z.array(imageSchema).default([]),
   highlights: z.array(z.string().min(1)).min(2).max(5),
   /** Optional consulting directions shown before the scope, e.g. ICT only or the full ELV package. */
   approaches: z.array(titledTextSchema).optional(),
