@@ -91,7 +91,22 @@
     "systemsTitle": "{groups} nhóm hệ thống, {count} hạng mục",
     "systemsIntro": "Tuỳ quy mô và công năng của công trình, NetworkAI tư vấn, thiết kế, triển khai và bảo trì từng hệ thống dưới đây.",
     "pmsLabel": "Kết nối PMS",
-    "pmsNote": "Kết nối PMS: hệ thống liên kết với phần mềm quản lý khách sạn."
+    "pmsNote": "Kết nối PMS: hệ thống liên kết với phần mềm quản lý khách sạn.",
+    "heroTitle": "Hệ thống điện nhẹ ELV, từ hạ tầng lõi đến trải nghiệm của khách",
+    "heroLead": "NetworkAI tư vấn, thiết kế, triển khai và bảo trì trọn bộ hệ thống điện nhẹ, chia thành 4 nhóm rõ ràng, cho khách sạn, resort, toà nhà cao tầng và công trình cao cấp.",
+    "heroPrimary": "Trao đổi dự án",
+    "heroSecondary": "Xem các hệ thống",
+    "heroSystemsLabel": "Đi tới từng hệ thống điện nhẹ",
+    "capability": {
+      "consult": { "title": "Tư vấn", "text": "Xác định yêu cầu và giải pháp phù hợp với công trình." },
+      "design": { "title": "Thiết kế", "text": "Từ thiết kế ý tưởng đến bản vẽ thi công và hồ sơ mời thầu." },
+      "deploy": { "title": "Triển khai", "text": "Cung cấp, lắp đặt, cấu hình và nghiệm thu." },
+      "maintain": { "title": "Bảo trì", "text": "Bảo trì định kỳ, xử lý sự cố, hỗ trợ vận hành." }
+    },
+    "listTitle": "Giải pháp theo từng lĩnh vực",
+    "listIntro": "Muốn tìm hiểu sâu hơn về một mảng cụ thể? Mỗi giải pháp dưới đây đều có trang riêng.",
+    "ctaTitle": "Công trình của bạn cần những hệ thống nào?",
+    "ctaText": "Cho chúng tôi biết quy mô và yêu cầu, NetworkAI sẽ đề xuất các hệ thống và phạm vi phù hợp."
   },
   "services": {
     "eyebrow": "Dịch vụ",

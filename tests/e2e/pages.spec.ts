@@ -225,8 +225,8 @@ test.describe("about page", () => {
   test.beforeEach(async ({ page }) => dismissCookies(page));
 
   const sections = [
-    { locale: "en", first: "Who we are", second: "What we do", firstText: /based in Da Nang/, secondText: /end-to-end project delivery/, team: "Our team" },
-    { locale: "vi", first: "Chân dung doanh nghiệp", second: "Giải pháp / Dịch vụ", firstText: /có trụ sở tại Đà Nẵng/, secondText: /triển khai trọn gói/, team: "Đội ngũ" },
+    { locale: "en", first: "Who we are", second: "Working with you", firstText: /Network Infrastructure, Smart Building/, secondText: /throughout the project lifecycle/, team: "Our team" },
+    { locale: "vi", first: "Chúng tôi là ai", second: "Đồng hành cùng khách hàng", firstText: /Network Infrastructure, Smart Building/, secondText: /xuyên suốt vòng đời dự án/, team: "Đội ngũ" },
   ];
 
   for (const { locale, first, second, firstText, secondText, team } of sections) {
@@ -255,7 +255,7 @@ test.describe("about page", () => {
     const main = page.getByRole("main");
     await main.locator("summary").nth(1).focus();
     await page.keyboard.press("Enter");
-    await expect(main.getByText(/end-to-end project delivery/)).toBeVisible();
+    await expect(main.getByText(/throughout the project lifecycle/)).toBeVisible();
   });
 });
 
@@ -321,6 +321,19 @@ test.describe("pages that hold the detail the home page previews", () => {
     await expect(page.locator("#systems h2")).toHaveText("4 nhóm hệ thống, 16 hạng mục");
     await expect(page.locator("#systems li")).toHaveCount(16);
     await expect(page.locator("#systems").getByText("Kết nối PMS", { exact: true })).toHaveCount(3);
+  });
+
+  test("Solutions leads with shortcuts to all sixteen systems and keeps the solution list", async ({ page }) => {
+    await page.goto("/en/solutions");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCSS("color", "rgb(255, 255, 255)");
+    const shortcuts = page.getByRole("navigation", { name: "Jump to each ELV system" }).getByRole("link");
+    await expect(shortcuts).toHaveCount(16);
+    await expect(page.locator("#systems li")).toHaveCount(16);
+    await expect(page.locator("#solutions-list li")).toHaveCount(9);
+
+    await shortcuts.filter({ hasText: "CCTV" }).click();
+    await expect(page).toHaveURL(/#s-cctv$/);
+    await expect(page.locator("#s-cctv")).toBeInViewport();
   });
 
   test("About shows every site photo labelled by work and phase", async ({ page }) => {

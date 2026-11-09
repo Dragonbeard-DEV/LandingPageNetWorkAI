@@ -126,6 +126,16 @@
     background: linear-gradient(to bottom, var(--page-header-from), var(--page-header-to));
   }
 
+  /* Dark navy band with a faint blueprint grid, for showcase headers such as Solutions. */
+  .tech-grid {
+    background-color: var(--text-strong);
+    background-image:
+      linear-gradient(rgba(91, 221, 208, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91, 221, 208, 0.07) 1px, transparent 1px),
+      radial-gradient(ellipse at 85% 20%, rgba(15, 91, 255, 0.35), transparent 60%);
+    background-size: 40px 40px, 40px 40px, 100% 100%;
+  }
+
   .header-dark-layer {
     background: linear-gradient(to right, var(--header-dark-from), var(--header-dark-to));
   }

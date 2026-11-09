@@ -19,7 +19,7 @@ export function SystemCatalog({ groups, pmsLabel }: Props) {
           </Reveal>
           <ul className="grid gap-4 md:grid-cols-2">
             {group.items.map((item) => (
-              <Reveal as="li" key={item.name} className="flex gap-5 rounded-[var(--radius-card)] border border-border-soft bg-card p-5 shadow-card">
+              <Reveal as="li" key={item.name} id={`s-${item.icon}`} className="flex scroll-mt-28 gap-5 rounded-[var(--radius-card)] border border-border-soft bg-card p-5 shadow-card">
                 <TechIconTile name={item.icon} className="size-12 rounded-xl" />
                 <div>
                   <h4 className="font-bold">{item.name}</h4>

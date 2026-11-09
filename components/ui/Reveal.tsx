@@ -7,10 +7,12 @@ type Props = {
   children: ReactNode;
   className?: string;
   as?: "div" | "li";
+  /** Anchor target, e.g. for in-page links to one card. */
+  id?: string;
 };
 
 /** Fades content in when it scrolls into view. CSS skips the effect for reduced motion. */
-export function Reveal({ children, className, as: Tag = "div" }: Props) {
+export function Reveal({ children, className, as: Tag = "div", id }: Props) {
   const ref = useRef<HTMLDivElement & HTMLLIElement>(null);
 
   useEffect(() => {
@@ -32,7 +34,7 @@ export function Reveal({ children, className, as: Tag = "div" }: Props) {
   }, []);
 
   return (
-    <Tag ref={ref} className={cn("reveal", className)}>
+    <Tag ref={ref} id={id} className={cn("reveal", className)}>
       {children}
     </Tag>
   );

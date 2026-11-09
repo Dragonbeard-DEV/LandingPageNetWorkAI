@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/cn";
 
-type Variant = "primary" | "secondary" | "inverse";
+type Variant = "primary" | "secondary" | "inverse" | "outlineInverse";
 
 type CommonProps = {
   children: ReactNode;
@@ -26,6 +26,8 @@ const variants: Record<Variant, string> = {
   secondary:
     "border border-border-strong bg-card text-strong hover:border-border-strong-hover hover:bg-soft",
   inverse: "bg-white text-brand-500 hover:bg-brand-soft focus-visible:outline-white",
+  /** Secondary action on a dark band. */
+  outlineInverse: "border border-white/35 text-white hover:border-white/70 hover:bg-white/10 focus-visible:outline-white",
 };
 
 function isExternal(href: string): boolean {
