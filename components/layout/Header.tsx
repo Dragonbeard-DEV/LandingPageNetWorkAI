@@ -259,14 +259,14 @@ export function Header({ segments }: Props) {
           className={cn("relative shrink-0 rounded-lg", isOnDark && "focus-visible:outline-white")}
           aria-label={t("homeLink", { name: siteConfig.name })}
         >
-          <Image src={siteConfig.logo.header} alt="" width={245} height={56} className={cn("h-12 md:h-14", fadeClass, isOnDark ? "opacity-0" : "opacity-100")} style={{ width: "auto" }} />
+          <Image src={siteConfig.logo.header} alt="" width={250} height={48} className={cn("h-10 md:h-12", fadeClass, isOnDark ? "opacity-0" : "opacity-100")} style={{ width: "auto" }} />
           <Image
             src={siteConfig.logo.headerOnDark}
             alt=""
-            width={245}
-            height={56}
+            width={250}
+            height={48}
             preload
-            className={cn("absolute top-0 left-0 h-12 md:h-14", fadeClass, isOnDark ? "opacity-100" : "opacity-0")}
+            className={cn("absolute top-0 left-0 h-10 md:h-12", fadeClass, isOnDark ? "opacity-100" : "opacity-0")}
             style={{ width: "auto" }}
           />
         </Link>

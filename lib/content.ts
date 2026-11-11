@@ -37,6 +37,8 @@ export const solutionSchema = z.object({
       z.object({
         title: z.string().min(1),
         text: z.string().min(1),
+        /** The solution page this group links to in the solutions overview. */
+        solution: slugSchema.optional(),
         items: z
           .array(
             z.object({

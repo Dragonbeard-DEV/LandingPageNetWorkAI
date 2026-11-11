@@ -86,7 +86,12 @@ function expectRefs(from: string, type: ContentType, slugs: unknown): void {
 }
 
 function checkReferences(): void {
-  for (const [slug, data] of records.solutions) expectRefs(`solutions/${slug}.relatedProjects`, "projects", data.relatedProjects);
+  for (const [slug, data] of records.solutions) {
+    expectRefs(`solutions/${slug}.relatedProjects`, "projects", data.relatedProjects);
+    const groups: Array<{ solution?: string }> = Array.isArray(data.systemGroups) ? data.systemGroups : [];
+    const groupLinks = groups.flatMap((group) => (group.solution ? [group.solution] : []));
+    expectRefs(`solutions/${slug}.systemGroups.solution`, "solutions", groupLinks);
+  }
   for (const [slug, data] of records.segments) expectRefs(`segments/${slug}.solutions`, "solutions", data.solutions);
   for (const [slug, data] of records.projects) {
     expectRefs(`projects/${slug}.solutions`, "solutions", data.solutions);

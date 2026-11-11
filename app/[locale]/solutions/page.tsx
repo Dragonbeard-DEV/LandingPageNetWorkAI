@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { PageHeader } from "@/components/sections/PageHeader";
+import { SolutionAreas } from "@/components/sections/SolutionAreas";
 import { SolutionGrid } from "@/components/sections/SolutionGrid";
 import { SystemCatalog } from "@/components/sections/SystemCatalog";
 import { SystemsHero } from "@/components/sections/SystemsHero";
@@ -69,7 +70,11 @@ export default async function SolutionsPage({ params }: PageProps<"/[locale]/sol
       )}
 
       <Section id="solutions-list" tone="alt" title={t("listTitle")} intro={t("listIntro")}>
-        <SolutionGrid solutions={getSolutions(locale)} linkLabel={t("linkLabel")} />
+        {systemGroups ? (
+          <SolutionAreas groups={systemGroups} linkLabel={t("linkLabel")} />
+        ) : (
+          <SolutionGrid solutions={getSolutions(locale)} linkLabel={t("linkLabel")} />
+        )}
       </Section>
 
       <CtaBand title={t("ctaTitle")} text={t("ctaText")} buttonLabel={common("cta.button")} />
