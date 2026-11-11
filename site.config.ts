@@ -19,7 +19,7 @@ export const siteConfig = {
     full: "/images/brand/networkai-logo-full-nwai2026b.png",
     header: "/images/brand/networkai-logo-header-nwai2026b.png",
     headerOnDark: "/images/brand/networkai-logo-header-on-dark-nwai2026b.png",
-    icon: "/images/brand/networkai-logo-icon.png",
+    icon: "/images/brand/networkai-logo-icon-nwai2026.png",
     wordmark: "/images/brand/networkai-logo-wordmark.png",
   },
   contact: {

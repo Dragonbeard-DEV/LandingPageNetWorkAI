@@ -119,7 +119,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <Section id="capability" tone="card" className="relative isolate overflow-hidden">
         <div aria-hidden="true" className="pointer-events-none absolute -right-16 -bottom-16 -z-10 w-64 md:-right-20 md:-bottom-20 md:w-[30rem]">
           <Reveal className="reveal-from-right">
-            <Image src={siteConfig.logo.icon} alt="" width={1280} height={1132} sizes="(min-width: 768px) 30rem, 16rem" className="h-auto w-full opacity-10 grayscale" />
+            <Image src={siteConfig.logo.icon} alt="" width={512} height={512} sizes="(min-width: 768px) 30rem, 16rem" className="h-auto w-full opacity-10 grayscale" />
           </Reveal>
         </div>
         <Reveal className="mx-auto max-w-4xl text-center">
