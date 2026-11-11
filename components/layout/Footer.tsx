@@ -23,7 +23,7 @@ export async function Footer() {
     <footer className="border-t border-border-soft bg-card">
       <Container className="py-14 md:py-16">
         <Link href="/" className="inline-block rounded-lg" aria-label={t("homeLink", { name: siteConfig.name })}>
-          <Image src={siteConfig.logo.full} alt="" width={188} height={36} className="h-9" style={{ width: "auto" }} />
+          <Image src={siteConfig.logo.full} alt="" width={173} height={36} className="h-9" style={{ width: "auto" }} />
         </Link>
         <p className="mt-4 max-w-md text-muted">{t("tagline")}</p>
 
