@@ -146,7 +146,7 @@ test.describe("header on scroll", () => {
     await page.goto("/vi");
     const logo = page.getByRole("banner").locator('img[src*="networkai-logo-header-on-dark"]');
     await expect(logo).toBeVisible();
-    expect((await logo.boundingBox())?.height).toBe(56);
+    expect((await logo.boundingBox())?.height).toBe(48);
 
     for (const width of [320, 375, 1024, 1280]) {
       await page.setViewportSize({ width, height: 800 });
@@ -292,8 +292,8 @@ test.describe("partners page", () => {
 test("technology cards use icons and the photo appears on the detail page", async ({ page }) => {
   await dismissCookies(page);
   await page.goto("/en/solutions");
-  await expect(page.locator("main article img")).toHaveCount(0);
-  await expect(page.locator("main article svg").first()).toBeVisible();
+  await expect(page.locator("#solutions-list img")).toHaveCount(0);
+  await expect(page.locator("#solutions-list svg").first()).toBeVisible();
 
   await page.goto("/en/solutions/data-center");
   await expect(page.getByRole("img", { name: "Server racks in a server room" })).toBeVisible();
@@ -323,13 +323,13 @@ test.describe("pages that hold the detail the home page previews", () => {
     await expect(page.locator("#systems").getByText("Kết nối PMS", { exact: true })).toHaveCount(3);
   });
 
-  test("Solutions leads with shortcuts to all sixteen systems and keeps the solution list", async ({ page }) => {
+  test("Solutions leads with shortcuts to all sixteen systems and four solution areas", async ({ page }) => {
     await page.goto("/en/solutions");
     await expect(page.getByRole("heading", { level: 1 })).toHaveCSS("color", "rgb(255, 255, 255)");
     const shortcuts = page.getByRole("navigation", { name: "Jump to each ELV system" }).getByRole("link");
     await expect(shortcuts).toHaveCount(16);
     await expect(page.locator("#systems li")).toHaveCount(16);
-    await expect(page.locator("#solutions-list li")).toHaveCount(9);
+    await expect(page.locator("#solutions-list h3")).toHaveCount(4);
 
     await shortcuts.filter({ hasText: "CCTV" }).click();
     await expect(page).toHaveURL(/#s-cctv$/);
