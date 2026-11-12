@@ -16,10 +16,10 @@ export const siteConfig = {
   legalName: "NetworkAI Technology Co., Ltd",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.networkai.vn",
   logo: {
-    full: "/images/brand/networkai-logo-full-nwai2026b.png",
-    header: "/images/brand/networkai-logo-header-nwai2026b.png",
-    headerOnDark: "/images/brand/networkai-logo-header-on-dark-nwai2026b.png",
-    icon: "/images/brand/networkai-logo-icon-nwai2026.png",
+    full: "/images/brand/networkai-logo-full-nwai2026v1.png",
+    header: "/images/brand/networkai-logo-header-nwai2026v1.png",
+    headerOnDark: "/images/brand/networkai-logo-header-on-dark-nwai2026v1.png",
+    icon: "/images/brand/networkai-logo-icon-nwai2026v1.png",
     wordmark: "/images/brand/networkai-logo-wordmark.png",
   },
   contact: {
